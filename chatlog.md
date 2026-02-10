@@ -147,3 +147,56 @@ Summaries of Claude Code sessions for continuity across conversations.
 ### Next steps
 - Test all breakpoints (320px, 375px, 768px, 1024px, 1440px)
 - Consider connecting Vercel GitHub integration for auto-deploy on push
+
+---
+
+## Session — 2026-02-10 (11 new features)
+
+### What happened
+Implemented 11 new features using a 5-agent team (css-vars-writer, css-writer, html-writer, js-writer, blog-writer) plus a reconciler agent. All agents ran in parallel where possible.
+
+### New features added
+1. **F9: Dark/Light Mode Toggle** — `[data-theme="light"]` CSS variables, `.nav__theme-toggle` button, localStorage persistence, `prefers-color-scheme` respect
+2. **F11: Vercel Analytics** — `/_vercel/insights/script.js` on both pages
+3. **F4: AI Integration Showcase** — `#ai-showcase` section with 4 cards (RFI Generation, Document Analysis, Proposal Writing, BIM Coordination)
+4. **F3: Interactive Project Map** — `#project-map` inline SVG with 10 location dots, hover labels, touch support, legend
+5. **F2: Testimonials** — `#testimonials` "Words to Build By" with 3 philosophical quotes (On Leadership, On Innovation, On Turnarounds)
+6. **F1: Case Study Modals** — "View Case Study" buttons on all 4 project cards, `<template>` elements with Challenge/Approach/Results/Metrics
+7. **F7: Project Image Lightbox** — Click project images to open full-size in lightbox modal
+8. **F10: PDF Resume Viewer** — Nav Resume button opens modal with iframe loading resume.html, lazy-loaded
+9. **F6: Kinetic Hero Text** — Word-by-word reveal animation with CSS `--word-index` stagger, prefers-reduced-motion support
+10. **F5: Micro-Interactions** — Card lift (-4px), button press (0.98), tag hover (orange), icon scale on hover, scroll-to-top press
+11. **F8: Blog Page** — `blog.html` with 4 articles (~500 words each): AI in construction, $60M turnaround, career arc, digital job site
+
+### Shared modal system
+- `openModal()`/`closeModal()`/`closeAllModals()` functions
+- ESC key, backdrop click, focus trap, scroll lock, focus restoration
+- 3 modal variants: case study, lightbox (transparent bg), resume viewer (iframe)
+
+### Section order (updated)
+Hero → Impact → About → Projects → AI Showcase → Experience → Project Map → Testimonials → Credentials → Contact → Footer → Modals → Scripts
+
+### Nav (updated)
+Home | About | Projects | Experience | Credentials | Contact | Blog | [Theme Toggle] | [Resume Viewer]
+
+### File changes
+- `css/variables.css` — +20 lines (light mode overrides)
+- `css/styles.css` — 1043 → 1785 lines (+742, 21 sections)
+- `index.html` — 394 → 686 lines (+292)
+- `js/main.js` — 297 → 502 lines (+205)
+- `blog.html` — New (337 lines)
+- `vercel.json` — +5 lines (blog.html cache header)
+
+### Reconciliation results
+- BEM audit: zero class mismatches across HTML/CSS/JS
+- All ARIA attributes correct (modals, SVG, buttons)
+- Cache-bust at v=3.0 in all CSS/JS links
+- OG URL fixed: `danieltso.vercel.app` → `daniel-tso-portfolio.vercel.app`
+- Light mode overrides cover all new sections
+
+### Next steps
+- Open index.html and blog.html locally — verify all sections render
+- Test dark/light toggle, modals, lightbox, resume viewer, map hover
+- Test at 375px, 768px, 1024px, 1440px
+- Run Lighthouse audit
+- Deploy with `npx vercel --prod`

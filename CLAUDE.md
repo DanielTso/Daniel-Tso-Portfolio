@@ -30,22 +30,23 @@ git add . && git commit -m "message" && git push origin main
 ## Architecture
 
 ### Core Files
-- **index.html** — Single HTML file with ALL page sections. Nav links must match section IDs (`href="#about"` → `<section id="about">`)
-- **css/variables.css** — CSS custom properties (colors, spacing, typography). All components reference these — color changes cascade automatically
+- **index.html** — Single HTML file with ALL page sections, modal shells, and case study templates. Nav links must match section IDs (`href="#about"` → `<section id="about">`)
+- **blog.html** — Blog page with 4 articles, same nav/footer as index.html. Nav links use `index.html#section` paths.
+- **css/variables.css** — CSS custom properties (colors, spacing, typography). Includes `[data-theme="light"]` overrides for light mode. All components reference these — color changes cascade automatically
 - **css/reset.css** — Browser normalization and base styles (dark mode defaults)
-- **css/styles.css** — All component styles (organized by section with comment headers and table of contents)
-- **js/main.js** — Interactive functionality: mobile menu, smooth scrolling, active nav highlighting, scroll-to-top, scroll progress bar, animated counters, hero parallax, staggered fade-in animations, focus trap
+- **css/styles.css** — All component styles (21 sections organized with comment headers and table of contents)
+- **js/main.js** — Interactive functionality: theme toggle, mobile menu, smooth scrolling, active nav highlighting, scroll-to-top, scroll progress bar, animated counters, hero parallax, staggered fade-in animations, focus trap, modal system (case study/lightbox/resume viewer), kinetic hero text, project map touch support
 - **assets/images/projects/** — AI-generated project images (WebP + PNG fallback, 18-34KB WebP)
 - **assets/images/favicon.png** — Orange "DT" monogram favicon (64x64)
 - **assets/images/hero-blueprint-pattern.webp** — Hero background pattern (18KB, converted from 1013KB PNG)
-- **assets/documents/resume.html** — Self-contained HTML resume (separate from main site, has its own inline styles)
-- **assets/documents/Daniel_Tso_Resume.pdf** — Downloadable resume linked from nav
-- **vercel.json** — Vercel deployment configuration (caching headers for assets, CSS, JS)
+- **assets/documents/resume.html** — Self-contained HTML resume (separate from main site, has its own inline styles). Loaded in iframe by resume viewer modal.
+- **assets/documents/Daniel_Tso_Resume.pdf** — Downloadable resume linked from resume viewer modal
+- **vercel.json** — Vercel deployment configuration (caching headers for assets, CSS, JS, blog.html)
 
 ### Section IDs (in page order)
-`home` (hero) → `impact` → `about` (3 pillar cards) → `projects` (image cards) → `experience` (card grid) → `credentials` (icon tiles) → `contact` → footer (no ID)
+`home` (hero) → `impact` → `about` (3 pillar cards) → `projects` (image cards + case study buttons + lightbox) → `ai-showcase` (4 AI workflow cards) → `experience` (card grid) → `project-map` (SVG map with dots) → `testimonials` (3 quote cards) → `credentials` (icon tiles) → `contact` → footer (no ID) → modals → case study templates
 
-Nav links target: `home`, `about`, `projects`, `experience`, `credentials`, `contact`. The `impact` section has no nav link.
+Nav links target: `home`, `about`, `projects`, `experience`, `credentials`, `contact`, `blog.html`. Plus theme toggle button and resume viewer button. The `impact`, `ai-showcase`, `project-map`, and `testimonials` sections have no nav links.
 
 ### Design System (variables.css)
 - **Colors**: BG Primary `#0a0a0f`, BG Secondary `#111118`, BG Card `#16161f`, Orange `#e8751a`, Text Primary `#f0f0f0`, Text Secondary `#b5b5c5`, Text Muted `#9090a0`, Border `#3a3a4a`
@@ -56,35 +57,53 @@ Nav links target: `home`, `about`, `projects`, `experience`, `credentials`, `con
 - **Type scale**: Fluid `clamp()` values from `--text-xs` through `--text-5xl`
 
 ### CSS Organization (styles.css)
-BEM architecture organized with table of contents. Sections:
+BEM architecture organized with table of contents. 21 sections:
 1. Global/Shared — `.container`, `.section-title`, `.btn--primary`, `.btn--outline-orange`, `.tag`
 2. Scroll Progress Bar — `.scroll-progress`
-3. Navigation — `.nav`, `.nav__bar`, `.nav__menu`, `.nav__link`, `.nav__toggle`
-4. Hero — `.hero`, `.hero__title`, `.hero__tagline`, `.hero__accent-line`, `.hero__background`
+3. Navigation — `.nav`, `.nav__bar`, `.nav__menu`, `.nav__link`, `.nav__toggle`, `.nav__theme-toggle`
+4. Hero — `.hero`, `.hero__title`, `.hero__tagline`, `.hero__tagline-word`, `.hero__accent-line`, `.hero__background`
 5. Impact Bar — `.impact`, `.impact__stat`, `.impact__stat-number` (monospace orange)
 6. About — `.narrative`, `.narrative__statement`, `.narrative__pillars`, `.narrative__pillar`
-7. Projects — `.projects__card`, `.projects__card-image`, `.projects__card-impact`
-8. Experience — `.experience__card`, `.experience__title`, `.experience__company`, `.experience__date`
-9. Credentials — `.credentials__tile`, `.credentials__tile--accent`, `.credentials__bar`
-10. Contact — `.contact__heading`, `.contact__item`, `.contact__divider`
-11. Footer — `.footer__name`, `.footer__copyright`
-12. Scroll To Top
-13. Utilities
+7. Projects — `.projects__card`, `.projects__card-image`, `.projects__card-impact`, `.projects__card-cta`
+8. AI Integration Showcase — `.ai-showcase`, `.ai-showcase__grid`, `.ai-showcase__card`, `.ai-showcase__card-icon/title/desc`
+9. Experience — `.experience__card`, `.experience__title`, `.experience__company`, `.experience__date`
+10. Project Map — `.project-map`, `.project-map__svg`, `.project-map__dot`, `.project-map__label`, `.project-map__legend`
+11. Testimonials — `.testimonials`, `.testimonials__grid`, `.testimonials__card`, `.testimonials__quote`, `.testimonials__author`
+12. Credentials — `.credentials__tile`, `.credentials__tile--accent`, `.credentials__bar`
+13. Contact — `.contact__heading`, `.contact__item`, `.contact__divider`
+14. Footer — `.footer__name`, `.footer__copyright`
+15. Modals — `.modal`, `.modal__backdrop`, `.modal__content`, `.modal__close`, `.modal__content--lightbox`, `.modal__content--resume-viewer`
+16. Blog — `.blog-hero`, `.blog-post`, `.blog-post__header/title/date/body/tags`
+17. Scroll To Top
+18. Micro-Interactions — card lift, button press, tag hover, icon scale
+19. Kinetic Hero Text — `@keyframes heroWordReveal`, `--word-index` stagger
+20. Light Mode Overrides — nav, hero, tag, toggle bar, modal backdrop
+21. Utilities
 
 ### JavaScript (main.js)
-All vanilla JS, no dependencies. Key DOM IDs: `navbar`, `navToggle`, `navMenu`, `scrollToTop`, `scrollProgress`, `currentYear`. Uses single consolidated scroll handler (16ms throttle) with `{ passive: true }`. Features:
+All vanilla JS, no dependencies. Key DOM IDs: `navbar`, `navToggle`, `navMenu`, `scrollToTop`, `scrollProgress`, `currentYear`, `themeToggle`, `resumeViewerBtn`, `resumeIframe`, `caseStudyModal`, `caseStudyBody`, `lightboxModal`, `lightboxImage`, `resumeViewerModal`. Uses single consolidated scroll handler (16ms throttle) with `{ passive: true }`. Features:
+- **Theme toggle**: `setTheme()`/`initTheme()`, localStorage, `data-theme` attr on `<html>`, respects `prefers-color-scheme`
 - **Scroll progress bar**: 2px orange bar at top, width tracks scroll percentage
 - **Animated counters**: Impact stats count from 0 when section enters viewport (ease-out cubic, 2s)
 - **Hero parallax**: Blueprint pattern moves at 0.3x scroll speed
+- **Kinetic hero text**: `.is-revealed` added 200ms after page load, CSS animation with `--word-index` stagger
 - **Staggered fade-ins**: `data-delay` attribute adds transition-delay to `.animate-on-scroll` elements
 - **IntersectionObserver**: `.animate-on-scroll` → `.is-visible`
 - **Nav highlighting**: `.nav__link--active` BEM modifier
+- **Modal system**: `openModal()`/`closeModal()`/`closeAllModals()`, ESC key, backdrop click, focus trap, scroll lock, focus restoration
+- **Case study modals**: `[data-case-study]` buttons inject `<template>` content
+- **Lightbox**: `[data-lightbox]` project images open in lightbox modal (click + Enter/Space)
+- **Resume viewer**: `#resumeViewerBtn` opens iframe modal, lazy-loads `resume.html`
+- **Project map**: Touch device tap-to-toggle labels on `.project-map__dot` elements
 
 ### State Classes (must stay synchronized across HTML/CSS/JS)
-- `.is-open` — mobile menu open state (on `navMenu` and `navToggle`)
+- `.is-open` — mobile menu open state (on `navMenu` and `navToggle`) + modal open state (on `.modal`)
 - `.is-scrolled` — navbar background on scroll (on `navbar`)
-- `.is-visible` — fade-in animation triggered (on `.animate-on-scroll` elements)
+- `.is-visible` — fade-in animation triggered (on `.animate-on-scroll` elements) + map label visibility (on `.project-map__label`)
+- `.is-revealed` — kinetic hero text animation trigger (on `.hero__tagline`)
 - `.nav__link--active` — active nav link highlighting (BEM modifier)
+- `.modal-open` — body scroll lock when modal is open
+- `.visible` — scroll-to-top button visibility
 - `.menu-open` — body class to lock scroll when mobile menu is open
 - `.visible` — scroll-to-top button visibility
 
@@ -125,7 +144,7 @@ Duplicate `.projects__card` in `.projects__grid` within `<section id="projects">
 Commit directly to `main` (auto-deploys to Vercel production). For major changes, optionally use feature branches — Vercel creates preview deployments for each branch/PR. Note: Vercel auto-deploy via GitHub integration is NOT connected — use `npx vercel --prod` to deploy manually after pushing.
 
 ### Cache Busting
-CSS and JS files use `?v=X.X` query strings for cache busting (e.g., `styles.css?v=2.2`). **Bump the version number** whenever CSS or JS files change to ensure browsers fetch the new files. The current version is `2.2`.
+CSS and JS files use `?v=X.X` query strings for cache busting (e.g., `styles.css?v=2.2`). **Bump the version number** whenever CSS or JS files change to ensure browsers fetch the new files. The current version is `3.0`.
 
 ### Image Optimization
 All images converted to WebP format for performance. Project images and hero blueprint use `<picture>` elements with WebP source and PNG fallback:

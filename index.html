@@ -15,7 +15,7 @@
   <meta property="og:title" content="Daniel Tso | Construction Project Manager">
   <meta property="og:description" content="33 years of construction leadership — precision meets technology">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://danieltso.vercel.app">
+  <meta property="og:url" content="https://daniel-tso-portfolio.vercel.app">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
@@ -32,9 +32,9 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/variables.css?v=2.2">
-  <link rel="stylesheet" href="css/reset.css?v=2.2">
-  <link rel="stylesheet" href="css/styles.css?v=2.2">
+  <link rel="stylesheet" href="css/variables.css?v=3.1">
+  <link rel="stylesheet" href="css/reset.css?v=3.1">
+  <link rel="stylesheet" href="css/styles.css?v=3.1">
 </head>
 <body>
 
@@ -62,10 +62,16 @@
             <li class="nav__item"><a href="#experience" class="nav__link">Experience</a></li>
             <li class="nav__item"><a href="#credentials" class="nav__link">Credentials</a></li>
             <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+            <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
             <li class="nav__item">
-              <a href="assets/documents/Daniel_Tso_Resume.pdf" class="btn btn--outline-orange btn--sm nav__resume-btn" download>
+              <button class="nav__theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+                <i class="fas fa-sun"></i>
+              </button>
+            </li>
+            <li class="nav__item">
+              <button class="btn btn--outline-orange btn--sm nav__resume-btn" id="resumeViewerBtn" aria-label="View resume">
                 Resume
-              </a>
+              </button>
             </li>
           </ul>
         </div>
@@ -82,7 +88,11 @@
       <div class="container hero__container">
         <div class="hero__accent-line"></div>
         <h1 class="hero__title animate-on-scroll" id="hero-heading">DANIEL TSO</h1>
-        <p class="hero__tagline animate-on-scroll">Construction. Technology. Precision.</p>
+        <p class="hero__tagline" aria-label="Construction. Technology. Precision.">
+          <span class="hero__tagline-word" style="--word-index: 0">Construction.</span>
+          <span class="hero__tagline-word" style="--word-index: 1">Technology.</span>
+          <span class="hero__tagline-word" style="--word-index: 2">Precision.</span>
+        </p>
         <div class="hero__cta animate-on-scroll">
           <a href="#projects" class="btn btn--primary btn--lg">View My Work</a>
         </div>
@@ -151,7 +161,7 @@
         <div class="projects__grid">
           <!-- Project: Google Datacenter -->
           <div class="projects__card animate-on-scroll" data-delay="0">
-            <div class="projects__card-image">
+            <div class="projects__card-image" data-lightbox role="button" tabindex="0" aria-label="View full image">
               <picture>
                 <source srcset="assets/images/projects/project-google-datacenter.webp" type="image/webp">
                 <img src="assets/images/projects/project-google-datacenter.png" alt="Google Datacenter project — server racks and structured cabling" loading="lazy">
@@ -167,12 +177,13 @@
                 <span class="tag">Data Centers</span>
                 <span class="tag">QA</span>
               </div>
+              <div class="projects__card-cta"><button class="btn btn--outline-orange btn--sm" data-case-study="google-datacenter">View Case Study</button></div>
             </div>
           </div>
 
           <!-- Project: Mission Mine -->
           <div class="projects__card animate-on-scroll" data-delay="100">
-            <div class="projects__card-image">
+            <div class="projects__card-image" data-lightbox role="button" tabindex="0" aria-label="View full image">
               <picture>
                 <source srcset="assets/images/projects/project-mission-mine.webp" type="image/webp">
                 <img src="assets/images/projects/project-mission-mine.png" alt="Mission Mine Mill — heavy industrial mining expansion" loading="lazy">
@@ -188,12 +199,13 @@
                 <span class="tag">110 Personnel</span>
                 <span class="tag">Turnaround</span>
               </div>
+              <div class="projects__card-cta"><button class="btn btn--outline-orange btn--sm" data-case-study="mission-mine">View Case Study</button></div>
             </div>
           </div>
 
           <!-- Project: Nestle Purina -->
           <div class="projects__card animate-on-scroll" data-delay="200">
-            <div class="projects__card-image">
+            <div class="projects__card-image" data-lightbox role="button" tabindex="0" aria-label="View full image">
               <picture>
                 <source srcset="assets/images/projects/project-nestle-purina.webp" type="image/webp">
                 <img src="assets/images/projects/project-nestle-purina.png" alt="Nestle Purina manufacturing — process piping installation" loading="lazy">
@@ -209,12 +221,13 @@
                 <span class="tag">Safety</span>
                 <span class="tag">ProCore</span>
               </div>
+              <div class="projects__card-cta"><button class="btn btn--outline-orange btn--sm" data-case-study="nestle-purina">View Case Study</button></div>
             </div>
           </div>
 
           <!-- Project: LUCID Motors -->
           <div class="projects__card animate-on-scroll" data-delay="300">
-            <div class="projects__card-image">
+            <div class="projects__card-image" data-lightbox role="button" tabindex="0" aria-label="View full image">
               <picture>
                 <source srcset="assets/images/projects/project-lucid-motors.webp" type="image/webp">
                 <img src="assets/images/projects/project-lucid-motors.png" alt="LUCID Motors production facility — structural steel" loading="lazy">
@@ -230,7 +243,39 @@
                 <span class="tag">QA/QC</span>
                 <span class="tag">Precision</span>
               </div>
+              <div class="projects__card-cta"><button class="btn btn--outline-orange btn--sm" data-case-study="lucid-motors">View Case Study</button></div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== AI INTEGRATION SHOWCASE ==================== -->
+    <section class="ai-showcase" id="ai-showcase" aria-labelledby="ai-showcase-heading">
+      <div class="container">
+        <h2 class="section-title" id="ai-showcase-heading">AI Integration</h2>
+        <p class="ai-showcase__intro animate-on-scroll">I'm not waiting for the industry to catch up. These are AI workflows I use today.</p>
+
+        <div class="ai-showcase__grid">
+          <div class="ai-showcase__card animate-on-scroll" data-delay="0">
+            <i class="fas fa-file-alt ai-showcase__card-icon"></i>
+            <h3 class="ai-showcase__card-title">RFI Generation</h3>
+            <p class="ai-showcase__card-desc">AI-assisted RFI drafting from field observations — turning site photos and notes into structured, submittal-ready documents in minutes.</p>
+          </div>
+          <div class="ai-showcase__card animate-on-scroll" data-delay="100">
+            <i class="fas fa-search ai-showcase__card-icon"></i>
+            <h3 class="ai-showcase__card-title">Document Analysis</h3>
+            <p class="ai-showcase__card-desc">Automated spec and submittal review with AI-powered conflict flagging — catching discrepancies humans miss across thousands of pages.</p>
+          </div>
+          <div class="ai-showcase__card animate-on-scroll" data-delay="200">
+            <i class="fas fa-pen-nib ai-showcase__card-icon"></i>
+            <h3 class="ai-showcase__card-title">Proposal Writing</h3>
+            <p class="ai-showcase__card-desc">AI-powered proposal drafting from project requirements — generating scope narratives, qualifications, and technical approaches at speed.</p>
+          </div>
+          <div class="ai-showcase__card animate-on-scroll" data-delay="300">
+            <i class="fas fa-cubes ai-showcase__card-icon"></i>
+            <h3 class="ai-showcase__card-title">BIM Coordination</h3>
+            <p class="ai-showcase__card-desc">AI tools for clash detection and model QA — accelerating coordination cycles and reducing field conflicts before they happen.</p>
           </div>
         </div>
       </div>
@@ -289,6 +334,85 @@
               <span class="tag">Mining</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECT MAP ==================== -->
+    <section class="project-map" id="project-map" aria-labelledby="project-map-heading">
+      <div class="container">
+        <h2 class="section-title" id="project-map-heading">Project Footprint</h2>
+
+        <div class="project-map__svg-wrapper animate-on-scroll">
+          <svg class="project-map__svg" viewBox="0 0 960 600" role="img" aria-label="Map of the United States showing project locations">
+            <!-- Simplified US outline -->
+            <path class="project-map__outline" d="M120,340 L130,300 L140,280 L160,260 L170,250 L200,230 L230,220 L260,210 L300,200 L340,195 L380,190 L420,185 L460,180 L500,175 L540,180 L580,190 L620,200 L660,210 L700,215 L740,220 L770,230 L790,240 L810,260 L820,280 L825,300 L830,320 L835,340 L830,360 L820,380 L800,400 L780,410 L760,420 L740,425 L720,430 L700,432 L680,430 L660,425 L640,420 L620,415 L600,410 L580,405 L560,400 L540,395 L520,390 L500,385 L480,380 L460,375 L440,370 L420,365 L400,360 L380,358 L360,360 L340,365 L320,370 L300,380 L280,390 L260,395 L240,395 L220,390 L200,385 L180,375 L160,365 L140,355 L120,340 Z"/>
+
+            <!-- Project dots + labels -->
+            <circle class="project-map__dot" cx="490" cy="230" r="6" role="img" tabindex="0" aria-label="Council Bluffs, Iowa — Google Datacenter"/>
+            <text class="project-map__label" x="500" y="225">Council Bluffs, IA — Google Datacenter</text>
+
+            <circle class="project-map__dot" cx="620" cy="260" r="6" role="img" tabindex="0" aria-label="Batavia, Ohio — Nestle Purina"/>
+            <text class="project-map__label" x="630" y="255">Batavia, OH — Nestle Purina</text>
+
+            <circle class="project-map__dot" cx="610" cy="252" r="6" role="img" tabindex="0" aria-label="Hamilton, Ohio — ESNOVA Robotics"/>
+            <text class="project-map__label" x="620" y="247">Hamilton, OH — ESNOVA Robotics</text>
+
+            <circle class="project-map__dot" cx="230" cy="380" r="6" role="img" tabindex="0" aria-label="Miami, Arizona — Freeport-McMoran"/>
+            <text class="project-map__label" x="240" y="375">Miami, AZ — Freeport-McMoran</text>
+
+            <circle class="project-map__dot" cx="225" cy="400" r="6" role="img" tabindex="0" aria-label="Sahuarita, Arizona — Mission Mine"/>
+            <text class="project-map__label" x="235" y="395">Sahuarita, AZ — Mission Mine</text>
+
+            <circle class="project-map__dot" cx="220" cy="390" r="6" role="img" tabindex="0" aria-label="Casa Grande, Arizona — LUCID Motors"/>
+            <text class="project-map__label" x="230" y="385">Casa Grande, AZ — LUCID Motors</text>
+
+            <circle class="project-map__dot" cx="225" cy="375" r="6" role="img" tabindex="0" aria-label="Kearney, Arizona — ASARCO"/>
+            <text class="project-map__label" x="235" y="370">Kearney, AZ — ASARCO</text>
+
+            <circle class="project-map__dot project-map__dot--home" cx="230" cy="385" r="8" role="img" tabindex="0" aria-label="Tempe, Arizona — Home Base"/>
+            <text class="project-map__label" x="240" y="382">Tempe, AZ — Home Base</text>
+
+            <circle class="project-map__dot" cx="175" cy="330" r="6" role="img" tabindex="0" aria-label="Las Vegas, Nevada — Ironworker"/>
+            <text class="project-map__label" x="185" y="325">Las Vegas, NV — Ironworker</text>
+
+            <circle class="project-map__dot project-map__dot--bechtel" cx="400" cy="300" r="20" role="img" tabindex="0" aria-label="Bechtel — Nationwide Projects"/>
+            <text class="project-map__label" x="425" y="300">Bechtel — Nationwide</text>
+          </svg>
+        </div>
+
+        <div class="project-map__legend animate-on-scroll">
+          <span class="project-map__legend-item">
+            <span class="project-map__legend-dot"></span> Project Site
+          </span>
+          <span class="project-map__legend-item">
+            <span class="project-map__legend-dot project-map__legend-dot--home"></span> Home Base
+          </span>
+          <span class="project-map__legend-item">
+            <span class="project-map__legend-dot project-map__legend-dot--bechtel"></span> Bechtel Nationwide
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <h2 class="section-title" id="testimonials-heading">Words to Build By</h2>
+
+        <div class="testimonials__grid">
+          <blockquote class="testimonials__card animate-on-scroll" data-delay="0">
+            <p class="testimonials__quote">The best leaders in construction don't just manage schedules — they read people, anticipate failures, and build trust before the first pour.</p>
+            <cite class="testimonials__author">— On Leadership</cite>
+          </blockquote>
+          <blockquote class="testimonials__card animate-on-scroll" data-delay="100">
+            <p class="testimonials__quote">Technology doesn't replace field instinct. It sharpens it. The crews who adopt early will outperform those who resist — every time.</p>
+            <cite class="testimonials__author">— On Innovation</cite>
+          </blockquote>
+          <blockquote class="testimonials__card animate-on-scroll" data-delay="200">
+            <p class="testimonials__quote">A troubled project doesn't need more meetings. It needs someone who's been in the trench, understands the scope, and can make decisions in real time.</p>
+            <cite class="testimonials__author">— On Turnarounds</cite>
+          </blockquote>
         </div>
       </div>
     </section>
@@ -388,7 +512,174 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Case Study Modal -->
+  <div class="modal" id="caseStudyModal" role="dialog" aria-modal="true" aria-labelledby="caseStudyTitle">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__content">
+      <button class="modal__close" data-modal-close aria-label="Close modal"><i class="fas fa-times"></i></button>
+      <div id="caseStudyBody"></div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__content modal__content--lightbox">
+      <button class="modal__close" data-modal-close aria-label="Close lightbox"><i class="fas fa-times"></i></button>
+      <img id="lightboxImage" src="" alt="" width="800" height="400">
+    </div>
+  </div>
+
+  <!-- Resume Viewer Modal -->
+  <div class="modal" id="resumeViewerModal" role="dialog" aria-modal="true" aria-labelledby="resumeViewerTitle">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__content modal__content--resume-viewer">
+      <button class="modal__close" data-modal-close aria-label="Close resume viewer"><i class="fas fa-times"></i></button>
+      <div class="modal__resume-header">
+        <span class="modal__resume-title" id="resumeViewerTitle">Resume</span>
+        <a href="assets/documents/Daniel_Tso_Resume.pdf" class="modal__resume-download" download>
+          <i class="fas fa-download"></i> Download PDF
+        </a>
+      </div>
+      <div class="modal__resume-body">
+        <iframe id="resumeIframe" title="Daniel Tso Resume"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study Templates -->
+  <template id="case-study-google-datacenter">
+    <span class="modal__category">Mission Critical</span>
+    <h3 class="modal__title" id="caseStudyTitle">Google Datacenter</h3>
+    <p class="modal__meta">Dilling Group Inc &middot; 2025&ndash;Present</p>
+    <div class="modal__section">
+      <h4>Challenge</h4>
+      <p>Mission-critical datacenter construction demands precision coordination across multiple MEP trades with zero tolerance for error. Every system must integrate flawlessly with Google's exacting standards for uptime and reliability.</p>
+    </div>
+    <div class="modal__section">
+      <h4>Approach</h4>
+      <p>Serving as QA BIM Coordinator, I lead cross-trade coordination meetings, interface directly with Google client representatives, and manage the complete RFI lifecycle. Digital tracking tools and standardized forms ensure nothing falls through the cracks in a facility where downtime costs millions per hour.</p>
+    </div>
+    <div class="modal__section">
+      <h4>Results</h4>
+      <p>Established consistent coordination workflows across mechanical, electrical, and plumbing trades. Maintained 100% digital documentation compliance and streamlined the RFI process to accelerate decision timelines.</p>
+    </div>
+    <div class="modal__metrics">
+      <div class="modal__metric">
+        <span class="modal__metric-value">3+</span>
+        <span class="modal__metric-label">Trades Coordinated</span>
+      </div>
+      <div class="modal__metric">
+        <span class="modal__metric-value">100%</span>
+        <span class="modal__metric-label">Digital Compliance</span>
+      </div>
+      <div class="modal__metric">
+        <span class="modal__metric-value">0</span>
+        <span class="modal__metric-label">Field Conflicts</span>
+      </div>
+    </div>
+  </template>
+
+  <template id="case-study-mission-mine">
+    <span class="modal__category">Mining</span>
+    <h3 class="modal__title">Mission Mine Mill Expansion</h3>
+    <p class="modal__meta">GMS Mining &middot; 2021&ndash;2022</p>
+    <div class="modal__section">
+      <h4>Challenge</h4>
+      <p>A $60M mining mill expansion project was failing — behind schedule, over budget, and losing contractor confidence. Leadership needed someone who could step in mid-stream and stabilize operations without shutting down production.</p>
+    </div>
+    <div class="modal__section">
+      <h4>Approach</h4>
+      <p>Took over as Superintendent and immediately restructured crew assignments, established clear communication channels, and implemented daily progress tracking. Managed 110 personnel across multiple shifts while maintaining active mine operations.</p>
+    </div>
+    <div class="modal__section">
+      <h4>Results</h4>
+      <p>Stabilized the project timeline and restored stakeholder confidence. Coordinated the largest workforce of my career while maintaining safety standards in an active mining environment.</p>
+    </div>
+    <div class="modal__metrics">
+      <div class="modal__metric">
+        <span class="modal__metric-value">$60M</span>
+        <span class="modal__metric-label">Project Value</span>
+      </div>
+      <div class="modal__metric">
+        <span class="modal__metric-value">110</span>
+        <span class="modal__metric-label">Personnel</span>
+      </div>
+      <div class="modal__metric">
+        <span class="modal__metric-value">Turnaround</span>
+        <span class="modal__metric-label">Project Status</span>
+      </div>
+    </div>
+  </template>
+
+  <template id="case-study-nestle-purina">
+    <span class="modal__category">Manufacturing</span>
+    <h3 class="modal__title">Nestle Purina Plant</h3>
+    <p class="modal__meta">Robinson Construction &middot; 2024&ndash;2025</p>
+    <div class="modal__section">
+      <h4>Challenge</h4>
+      <p>Manufacturing facility process piping installation with tight deadlines and strict food-safety compliance requirements. The project demanded precision fabrication and installation in an operating production environment.</p>
+    </div>
+    <div class="modal__section">
+      <h4>Approach</h4>
+      <p>Led an 18-person crew with structured daily planning, prefabrication strategies, and proactive material procurement. Coordinated shutdowns with plant operations to minimize production impact while maintaining aggressive install schedules.</p>
+    </div>
+    <div class="modal__section">
+      <h4>Results</h4>
+      <p>Delivered three weeks ahead of schedule with a flawless safety record — zero incidents throughout the entire project. The prefabrication approach reduced field installation time significantly.</p>
+    </div>
+    <div class="modal__metrics">
+      <div class="modal__metric">
+        <span class="modal__metric-value">3 Weeks</span>
+        <span class="modal__metric-label">Ahead of Schedule</span>
+      </div>
+      <div class="modal__metric">
+        <span class="modal__metric-value">0</span>
+        <span class="modal__metric-label">Safety Incidents</span>
+      </div>
+      <div class="modal__metric">
+        <span class="modal__metric-value">18</span>
+        <span class="modal__metric-label">Crew Size</span>
+      </div>
+    </div>
+  </template>
+
+  <template id="case-study-lucid-motors">
+    <span class="modal__category">Automotive</span>
+    <h3 class="modal__title">LUCID Motors Phase 2</h3>
+    <p class="modal__meta">QEIS Inc &middot; 2022&ndash;2023</p>
+    <div class="modal__section">
+      <h4>Challenge</h4>
+      <p>Precision EV manufacturing facility requiring surgical accuracy in structural steel and mechanical installations. LUCID's quality standards for their luxury electric vehicle production line demanded zero-tolerance QA/QC at every phase.</p>
+    </div>
+    <div class="modal__section">
+      <h4>Approach</h4>
+      <p>Started as Foreman and earned three promotions to Superintendent based on performance. Implemented rigorous QA/QC protocols, managed 42 tradesmen, and maintained zero-tolerance standards that matched LUCID's manufacturing precision.</p>
+    </div>
+    <div class="modal__section">
+      <h4>Results</h4>
+      <p>Triple promotion from Foreman to Superintendent — recognized for exceptional leadership and quality delivery. Managed the largest crew on the project with consistent quality output.</p>
+    </div>
+    <div class="modal__metrics">
+      <div class="modal__metric">
+        <span class="modal__metric-value">42</span>
+        <span class="modal__metric-label">Tradesmen Managed</span>
+      </div>
+      <div class="modal__metric">
+        <span class="modal__metric-value">3x</span>
+        <span class="modal__metric-label">Promotions</span>
+      </div>
+      <div class="modal__metric">
+        <span class="modal__metric-value">Zero</span>
+        <span class="modal__metric-label">QA/QC Failures</span>
+      </div>
+    </div>
+  </template>
+
   <!-- JavaScript -->
-  <script src="js/main.js?v=2.2" defer></script>
+  <script src="js/main.js?v=3.1" defer></script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

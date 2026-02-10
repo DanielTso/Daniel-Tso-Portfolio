@@ -17,6 +17,40 @@ function throttle(func, wait) {
   };
 }
 
+// ==================== THEME TOGGLE ====================
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  const toggleBtn = document.getElementById('themeToggle');
+  if (toggleBtn) {
+    const icon = toggleBtn.querySelector('i');
+    if (icon) {
+      icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+  }
+}
+
+function initTheme() {
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    setTheme(saved);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    setTheme('light');
+  }
+  // else default dark (no data-theme attr needed)
+}
+
+initTheme();
+
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    setTheme(current === 'light' ? 'dark' : 'light');
+  });
+}
+
 // ==================== DOM ELEMENTS ====================
 
 const navbar = document.getElementById('navbar');
@@ -293,4 +327,175 @@ document.querySelectorAll('a[href^="http"]').forEach(link => {
 
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
+
+  // Kinetic hero text reveal
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tagline = document.querySelector('.hero__tagline');
+  if (tagline) {
+    if (reducedMotion) {
+      tagline.querySelectorAll('.hero__tagline-word').forEach(word => {
+        word.style.opacity = '1';
+        word.style.transform = 'translateY(0)';
+      });
+      tagline.classList.add('is-revealed');
+    } else {
+      setTimeout(() => {
+        tagline.classList.add('is-revealed');
+      }, 200);
+    }
+  }
 });
+
+// ==================== MODAL SYSTEM ====================
+
+let previousFocusElement = null;
+
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  previousFocusElement = document.activeElement;
+  modal.classList.add('is-open');
+  document.body.classList.add('modal-open');
+
+  // Focus the close button
+  const closeBtn = modal.querySelector('.modal__close');
+  if (closeBtn) closeBtn.focus();
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  modal.classList.remove('is-open');
+  document.body.classList.remove('modal-open');
+  if (previousFocusElement) {
+    previousFocusElement.focus();
+    previousFocusElement = null;
+  }
+}
+
+function closeAllModals() {
+  document.querySelectorAll('.modal.is-open').forEach(modal => {
+    modal.classList.remove('is-open');
+  });
+  document.body.classList.remove('modal-open');
+  if (previousFocusElement) {
+    previousFocusElement.focus();
+    previousFocusElement = null;
+  }
+}
+
+// ESC key closes modals
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const openModalEl = document.querySelector('.modal.is-open');
+    if (openModalEl) {
+      closeAllModals();
+    }
+  }
+});
+
+// Backdrop click closes modal
+document.querySelectorAll('[data-modal-close]').forEach(el => {
+  el.addEventListener('click', closeAllModals);
+});
+
+// Focus trap for modals
+document.querySelectorAll('.modal').forEach(modal => {
+  modal.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusable = modal.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        last.focus();
+        e.preventDefault();
+      }
+    } else {
+      if (document.activeElement === last) {
+        first.focus();
+        e.preventDefault();
+      }
+    }
+  });
+});
+
+
+// ==================== CASE STUDY MODALS ====================
+
+document.querySelectorAll('[data-case-study]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const slug = btn.getAttribute('data-case-study');
+    const template = document.getElementById('case-study-' + slug);
+    const body = document.getElementById('caseStudyBody');
+    if (template && body) {
+      body.innerHTML = template.innerHTML;
+      openModal('caseStudyModal');
+    }
+  });
+});
+
+
+// ==================== LIGHTBOX ====================
+
+document.querySelectorAll('.projects__card-image[data-lightbox]').forEach(imageContainer => {
+  function openLightbox() {
+    const img = imageContainer.querySelector('img');
+    if (!img) return;
+    const lightboxImg = document.getElementById('lightboxImage');
+    if (lightboxImg) {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      openModal('lightboxModal');
+    }
+  }
+
+  imageContainer.addEventListener('click', openLightbox);
+  imageContainer.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openLightbox();
+    }
+  });
+});
+
+
+// ==================== RESUME VIEWER ====================
+
+const resumeViewerBtn = document.getElementById('resumeViewerBtn');
+let resumeLoaded = false;
+
+if (resumeViewerBtn) {
+  resumeViewerBtn.addEventListener('click', () => {
+    if (!resumeLoaded) {
+      const iframe = document.getElementById('resumeIframe');
+      if (iframe) {
+        iframe.src = 'assets/documents/resume.html';
+        resumeLoaded = true;
+      }
+    }
+    openModal('resumeViewerModal');
+  });
+}
+
+
+// ==================== PROJECT MAP (TOUCH SUPPORT) ====================
+
+if ('ontouchstart' in window) {
+  document.querySelectorAll('.project-map__dot').forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      // Toggle label visibility on touch
+      const label = dot.nextElementSibling;
+      if (label && label.classList.contains('project-map__label')) {
+        // Hide all other labels first
+        document.querySelectorAll('.project-map__label.is-visible').forEach(l => {
+          if (l !== label) l.classList.remove('is-visible');
+        });
+        label.classList.toggle('is-visible');
+      }
+    });
+  });
+}
