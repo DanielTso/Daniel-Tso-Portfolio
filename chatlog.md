@@ -59,3 +59,31 @@ Summaries of Claude Code sessions for continuity across conversations.
 - Run Lighthouse audit (target 90+ all categories)
 - Test at all breakpoints (320px, 375px, 768px, 1024px, 1440px)
 - Merge to main when approved
+
+---
+
+## Session — 2026-02-10
+
+### What happened
+- Fixed dark-on-dark text contrast issue Daniel reported — text was nearly invisible on dark backgrounds
+  - `--color-text-secondary`: `#8a8a9a` → `#b5b5c5` (~9:1 contrast ratio)
+  - `--color-text-muted`: `#555566` → `#9090a0` (~5.5:1 contrast ratio)
+  - `--color-border`: `#2a2a3a` → `#3a3a4a`
+- Merged `feature/creative-overhaul` to `main` (fast-forward merge)
+- Generated orange "DT" monogram favicon via Nano Banana Pro, resized to 64x64
+- Discovered production site was broken — browser serving stale cached CSS/JS from pre-overhaul
+  - Root cause: `vercel.json` had 24-hour cache on CSS/JS files
+  - Fix: Added `?v=2.1` cache-busting query strings to all CSS/JS links in `index.html`
+  - Reduced cache from 24h to 1h with `must-revalidate` in `vercel.json`
+- Discovered Vercel auto-deploy via GitHub is NOT connected — must use `npx vercel --prod` to deploy
+- Deployed all fixes to production at `https://daniel-tso-portfolio.vercel.app`
+
+### Key lessons
+- **Always cache-bust CSS/JS on major rewrites** — the overhaul changed every file but browsers served the old cached versions
+- **Production URL** is `daniel-tso-portfolio.vercel.app` (not `danieltso.vercel.app`)
+- Vercel GitHub integration not set up — deploys are manual via `npx vercel --prod`
+
+### Next steps
+- Run Lighthouse audit (target 90+ all categories)
+- Test all breakpoints (320px, 375px, 768px, 1024px, 1440px)
+- Consider connecting Vercel GitHub integration for auto-deploy on push

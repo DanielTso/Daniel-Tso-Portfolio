@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static portfolio website for Daniel Tso, a Construction Project Manager with 33 years of experience. Built with vanilla HTML5, CSS3, and JavaScript (no build process, no frameworks). Deployed to Vercel at `https://danieltso.vercel.app`.
+Static portfolio website for Daniel Tso, a Construction Project Manager with 33 years of experience. Built with vanilla HTML5, CSS3, and JavaScript (no build process, no frameworks). Deployed to Vercel at `https://daniel-tso-portfolio.vercel.app`.
 
 - Single-page application with smooth scrolling between sections
 - Dark mode design: near-black backgrounds with orange accent color
@@ -36,6 +36,7 @@ git add . && git commit -m "message" && git push origin main
 - **css/styles.css** — All component styles (organized by section with comment headers and table of contents)
 - **js/main.js** — Interactive functionality: mobile menu, smooth scrolling, active nav highlighting, scroll-to-top, scroll progress bar, animated counters, hero parallax, staggered fade-in animations, focus trap
 - **assets/images/projects/** — AI-generated project images (4 PNGs, ~70-90KB each)
+- **assets/images/favicon.png** — Orange "DT" monogram favicon (64x64)
 - **assets/documents/resume.html** — Self-contained HTML resume (separate from main site, has its own inline styles)
 - **assets/documents/Daniel_Tso_Resume.pdf** — Downloadable resume linked from nav
 - **vercel.json** — Vercel deployment configuration (caching headers for assets, CSS, JS)
@@ -46,7 +47,7 @@ git add . && git commit -m "message" && git push origin main
 Nav links target: `home`, `about`, `projects`, `experience`, `credentials`, `contact`. The `impact` section has no nav link.
 
 ### Design System (variables.css)
-- **Colors**: BG Primary `#0a0a0f`, BG Secondary `#111118`, BG Card `#16161f`, Orange `#e8751a`, Text Primary `#f0f0f0`, Text Secondary `#8a8a9a`, Text Muted `#555566`, Border `#2a2a3a`
+- **Colors**: BG Primary `#0a0a0f`, BG Secondary `#111118`, BG Card `#16161f`, Orange `#e8751a`, Text Primary `#f0f0f0`, Text Secondary `#b5b5c5`, Text Muted `#9090a0`, Border `#3a3a4a`
 - **Fonts**: Headings = Montserrat, Body = Inter, Monospace = JetBrains Mono (Google Fonts)
 - **Breakpoints**: Mobile 320-767px, Tablet 768-1023px, Desktop 1024px+
 - **Layout**: `--max-width: 1200px`, `--nav-height: 70px`
@@ -120,4 +121,7 @@ Duplicate `.projects__card` in `.projects__grid` within `<section id="projects">
 
 ## Git Workflow
 
-Commit directly to `main` (auto-deploys to Vercel production). For major changes, optionally use feature branches — Vercel creates preview deployments for each branch/PR. Current feature branch: `feature/creative-overhaul`.
+Commit directly to `main` (auto-deploys to Vercel production). For major changes, optionally use feature branches — Vercel creates preview deployments for each branch/PR. Note: Vercel auto-deploy via GitHub integration is NOT connected — use `npx vercel --prod` to deploy manually after pushing.
+
+### Cache Busting
+CSS and JS files use `?v=X.X` query strings for cache busting (e.g., `styles.css?v=2.1`). **Bump the version number** whenever CSS or JS files change to ensure browsers fetch the new files. The current version is `2.1`.
