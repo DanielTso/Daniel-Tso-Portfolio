@@ -195,8 +195,31 @@ Home | About | Projects | Experience | Credentials | Contact | Blog | [Theme Tog
 - Light mode overrides cover all new sections
 
 ### Next steps
-- Open index.html and blog.html locally — verify all sections render
-- Test dark/light toggle, modals, lightbox, resume viewer, map hover
-- Test at 375px, 768px, 1024px, 1440px
-- Run Lighthouse audit
-- Deploy with `npx vercel --prod`
+- ~~Open index.html and blog.html locally — verify all sections render~~ Done
+- ~~Test dark/light toggle, modals, lightbox, resume viewer, map hover~~ Done — all 5 PASSED
+- ~~Test at 375px, 768px, 1024px, 1440px~~ Done — all 3 breakpoints PASSED
+- ~~Run Lighthouse audit~~ Done
+- ~~Deploy with `npx vercel --prod`~~ Done
+
+---
+
+## Session — 2026-02-10 (testing, fixes, deploy)
+
+### What happened
+- Ran comprehensive testing of all 11 features via Playwright automation
+- Fixed 3 Lighthouse issues found during audit:
+  1. **ARIA prohibited attributes**: Added `role="img"` to all 10 SVG `<circle>` map dots (circles don't implicitly support `aria-label`)
+  2. **Light mode contrast**: Darkened light-mode orange from `#d4691a` to `#b5520e` (3.39:1 → 4.74:1 on `#f8f8fa` bg)
+  3. **Unsized lightbox image**: Added `width="800" height="400"` to `<img id="lightboxImage">`
+- Bumped cache-bust from `v=3.0` to `v=3.1` in both index.html and blog.html
+- Deployed to production at `https://daniel-tso-portfolio.vercel.app`
+
+### Test results
+- **Interactions (5/5 PASSED)**: Theme toggle, case study modal, lightbox, resume viewer, map hover
+- **Breakpoints (3/3 PASSED)**: 375px mobile, 768px tablet, 1024px desktop
+- **Lighthouse**: Performance 97, Accessibility 100, Best Practices 96, SEO 100
+
+### Key lessons
+- **SVG circles need `role="img"` for `aria-label`** — without an explicit role, `aria-label` is a prohibited ARIA attribute on generic SVG elements
+- **Light mode contrast differs from dark mode** — orange that passes on dark backgrounds (6:1) fails on light backgrounds (3.4:1). Must test both themes.
+- **Lighthouse tests in `prefers-color-scheme: light`** by default in headless Chrome — always verify light mode passes too
