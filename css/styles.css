@@ -70,9 +70,10 @@ section {
 }
 
 .btn--primary {
-  background-color: #d46a17;
+  background-color: #c06015;
   color: var(--color-white);
-  border-color: #d46a17;
+  border-color: #c06015;
+  font-weight: var(--font-bold);
 }
 
 .btn--primary:hover {
