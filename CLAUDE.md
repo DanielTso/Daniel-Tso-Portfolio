@@ -112,7 +112,7 @@ Duplicate `.projects__card` in `.projects__grid` within `<section id="projects">
 - **NO build tools** — No webpack, npm, bundlers. All CSS/JS must work directly in browser
 - **Accessibility** — WCAG 2.1 Level AA. Keyboard support on all interactive elements. 4.5:1 contrast minimum (3:1 for large bold text). ARIA labels on icon-only buttons. Orange focus outlines.
 - **Performance** — Lighthouse scores: Performance 97, Accessibility 100, Best Practices 100, SEO 100. Images use WebP with PNG fallback via `<picture>` elements. Fonts load non-render-blocking (preload + media swap). JS is deferred. Project images use `loading="lazy"`.
-- **Content sensitivity** — Professional references include real phone numbers. No confidential project details
+- **Content sensitivity** — No confidential project details. References listed as "available upon request" (no specific names/numbers on site)
 - **Deployment** — Hosted on Vercel. Every push to `main` goes live immediately. Preview deployments created for PRs/branches. Test thoroughly before merging to main
 - **Gitignore note** — `*.png` files at repo root are ignored; only PNGs under `assets/` are tracked. Screenshots saved to repo root won't be committed
 

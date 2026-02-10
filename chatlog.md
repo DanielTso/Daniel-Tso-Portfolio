@@ -117,6 +117,33 @@ Summaries of Claude Code sessions for continuity across conversations.
 - **WebP conversion is massive for performance** — hero pattern went from 1013KB to 18KB
 - Non-render-blocking fonts: the `media="print" onload` pattern is the standard approach for static sites without build tools
 
+---
+
+## Session — 2026-02-10 (resume update)
+
+### What happened
+- Daniel uploaded a new resume PDF with significant content updates
+- Compared new PDF against portfolio (`index.html`) and `resume.html` to identify all changes
+- Updated both files to match the new resume, deployed to production
+
+### Portfolio changes (index.html)
+- Dilling Group date corrected: `2024` → `2025` (projects card + experience card)
+- Western Industrial title: `Pipe Superintendent` → `Construction Manager`
+- Dilling Group experience description rewritten to reflect expanded role (cross-trade BIM coordination, client interface, RFIs, subcontractor workflows)
+- Western Industrial description updated: added "coordinated 3 subcontractors"
+- Credentials bar: `OSHA 10` → `OSHA 10 & 30`
+
+### resume.html full rewrite
+- **Professional summary**: Replaced single dense paragraph with new 3-paragraph personal voice version ("I have stepped into failing projects and turned them around...")
+- **Dilling Group**: 7 specific bullets (was 4 generic) — cross-trade BIM meetings, Google client interface, RFIs/change orders, digital forms/tracking tools
+- **Western Industrial**: Title changed to "Construction Manager", project name adds "Expansion", bullets updated
+- **ASARCO**: Added "Crisis Management Assignment" label
+- **Early career**: 4 separate job entries (Ironworker, Dibbling, Stanley, Family) consolidated into one "Early Career & Foundation" summary section
+- **Skills**: Reorganized from 5 categories to 4 — "AI Integration & Emerging Technology" (5 items) merged into "Industry & Technology" (2 items)
+- **Certifications**: "OSHA 10" → "OSHA 10 & 30"
+- **References**: Removed 3 specific names with phone numbers → "Available upon request"
+- **Portfolio URL**: Removed outdated GitHub Pages link
+
 ### Next steps
 - Test all breakpoints (320px, 375px, 768px, 1024px, 1440px)
 - Consider connecting Vercel GitHub integration for auto-deploy on push

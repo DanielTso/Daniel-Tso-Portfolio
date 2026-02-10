@@ -46,6 +46,22 @@ All notable changes to this project will be documented in this file.
 - Navigation links from footer
 - 7 skill group checklists (replaced with icon tiles)
 
+## [3.0.1] - 2026-02-10
+
+### Changed
+- Updated portfolio and resume.html to match new resume PDF
+- Dilling Group start date corrected: 2024 → 2025
+- Western Industrial title: Pipe Superintendent → Construction Manager
+- Dilling Group experience description expanded (cross-trade BIM, client interface, RFIs)
+- Western Industrial description updated (coordinated 3 subcontractors)
+- Credentials bar: OSHA 10 → OSHA 10 & 30
+- resume.html: professional summary rewritten (3-paragraph personal voice)
+- resume.html: Dilling Group expanded to 7 specific bullets
+- resume.html: early career consolidated from 4 entries to summary section
+- resume.html: skills reorganized from 5 to 4 categories
+- resume.html: references changed to "Available upon request"
+- resume.html: removed outdated GitHub Pages portfolio link
+
 ## [2.0.0] - 2026-02-09
 
 ### Changed
