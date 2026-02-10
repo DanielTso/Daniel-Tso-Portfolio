@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static portfolio website for Daniel Tso, a Construction Project Manager with 33 years of experience. Built with vanilla HTML5, CSS3, and JavaScript (no build process, no frameworks). Deployed to Vercel.
+Static portfolio website for Daniel Tso, a Construction Project Manager with 33 years of experience. Built with vanilla HTML5, CSS3, and JavaScript (no build process, no frameworks). Deployed to Vercel at `https://danieltso.vercel.app`.
 
 - Single-page application with smooth scrolling between sections
 - Mobile-first responsive design
@@ -29,26 +29,32 @@ git add . && git commit -m "message" && git push origin main
 ## Architecture
 
 ### Core Files
-- **index.html** — Single HTML file with ALL page sections (hero, about, experience, skills, projects, education, contact, footer). Nav links must match section IDs (`href="#about"` → `<section id="about">`)
+- **index.html** — Single HTML file with ALL page sections. Nav links must match section IDs (`href="#about"` → `<section id="about">`)
 - **css/variables.css** — CSS custom properties (colors, spacing, typography). All components reference these — color changes cascade automatically
 - **css/reset.css** — Browser normalization and base styles
-- **css/styles.css** — All component styles (1300+ lines, organized by section with comment headers)
+- **css/styles.css** — All component styles (organized by section with comment headers and table of contents)
 - **js/main.js** — Interactive functionality: mobile menu toggle, smooth scrolling, active nav highlighting, scroll-to-top button, IntersectionObserver fade-in animations, focus trap for accessibility
 - **assets/documents/resume.html** — Self-contained HTML resume (separate from main site, has its own inline styles)
 - **assets/documents/Daniel_Tso_Resume.pdf** — Downloadable resume linked from nav
 - **vercel.json** — Vercel deployment configuration (caching headers for assets, CSS, JS)
 
+### Section IDs (in page order)
+`home` (hero) → `impact` → `about` (career narrative) → `projects` → `experience` (timeline) → `credentials` (skills & education) → `contact` → footer (no ID)
+
+Nav links target: `home`, `about`, `projects`, `experience`, `credentials`, `contact`. The `impact` section has no nav link.
+
 ### Design System (variables.css)
-- **Colors**: Primary `#1a5490` (Deep Blue), Secondary `#2c3e50` (Dark Gray-Blue), Accent `#e67e22` (Construction Orange)
+- **Colors**: Navy `#0d2847`, Blue `#1a5490`, Orange `#d4711e`, Steel `#3d5a73`, Concrete `#f4f3f1`, Charcoal `#1c1c1e`
 - **Fonts**: Headings = Montserrat, Body = Open Sans (Google Fonts)
 - **Breakpoints**: Mobile 320-767px, Tablet 768-1023px, Desktop 1024px+
 - **Layout**: `--max-width: 1200px`, `--nav-height: 70px`
+- **Type scale**: Fluid `clamp()` values from `--text-xs` through `--text-5xl`
 
 ### CSS Organization (styles.css)
 BEM architecture organized with table of contents. Sections:
 1. Global/Shared — `.container`, `.section-title`, `.btn--*`, `.tag`
 2. Navigation — `.nav`, `.nav__bar`, `.nav__menu`, `.nav__link`, `.nav__toggle`
-3. Hero — `.hero`, `.hero__title`, `.hero__background` (dark navy with blueprint SVG pattern)
+3. Hero — `.hero`, `.hero__title`, `.hero__background`
 4. Impact Bar — `.impact`, `.impact__stat`, `.impact__stat-number`
 5. Career Narrative — `.narrative`, `.narrative__journey`, `.narrative__values`
 6. Projects — `.projects__card`, `.projects__card-badge` (numbered "01", "02")
@@ -56,28 +62,38 @@ BEM architecture organized with table of contents. Sections:
 8. Credentials — `.credentials__skill-group`, `.credentials__education-item`
 9. Contact — `.contact__card`, `.contact__references-note`
 10. Footer — `.footer__content`, `.footer__link`
+11. Scroll To Top
+12. Utilities
 
 ### JavaScript (main.js)
-All vanilla JS, no dependencies. Key DOM IDs: `navbar`, `navToggle`, `navMenu`, `scrollToTop`, `timelineToggle`, `timelineCollapsed`, `currentYear`. Uses single consolidated scroll handler with `{ passive: true }`. IntersectionObserver for `.animate-on-scroll` elements → adds `.is-visible` class. Menu states use `.is-open`, navbar scroll uses `.is-scrolled`.
+All vanilla JS, no dependencies. Key DOM IDs: `navbar`, `navToggle`, `navMenu`, `scrollToTop`, `timelineToggle`, `timelineCollapsed`, `currentYear`. Uses single consolidated scroll handler with `{ passive: true }`. IntersectionObserver for `.animate-on-scroll` elements → adds `.is-visible` class. Menu states use `.is-open`, navbar scroll uses `.is-scrolled`. Active nav link uses BEM class `.nav__link--active`.
+
+### State Classes (must stay synchronized across HTML/CSS/JS)
+- `.is-open` — mobile menu open state (on `navMenu` and `navToggle`)
+- `.is-scrolled` — navbar background on scroll (on `navbar`)
+- `.is-visible` — fade-in animation triggered (on `.animate-on-scroll` elements)
+- `.is-expanded` — timeline collapsed section expanded (on `timelineCollapsed`)
+- `.nav__link--active` — active nav link highlighting (BEM modifier)
+- `.menu-open` — body class to lock scroll when mobile menu is open
 
 ## Content Patterns
 
 ### Adding Experience
-Add `.timeline__item` div in `<section id="experience">` with BEM classes: `.timeline__job-title`, `.timeline__company`, `.timeline__meta`, `.timeline__responsibilities`, `.timeline__tags > .timeline__tag`. First 4 entries visible, older ones inside `.timeline__collapsed`.
+Add `.timeline__item` div in `<section id="experience">` with BEM classes: `.timeline__job-title`, `.timeline__company`, `.timeline__meta`, `.timeline__responsibilities`, `.timeline__tags > .timeline__tag`. First 4 entries visible, older ones inside `#timelineCollapsed`.
 
 ### Adding Skills
-Add `.credentials__skill-item` items with FontAwesome check icon in `.credentials__skill-group` divs within `<section id="credentials">`. Categories: Project Management, Technical Coordination, Field Leadership, Safety & Compliance, Industry Expertise, Technical Skills, AI Integration & Emerging Tech.
+Add `.credentials__skill-item` items with FontAwesome check icon in `.credentials__skill-group` divs within `<section id="credentials">`. Seven categories currently exist.
 
 ### Adding Projects
 Duplicate `.projects__card` in `<section id="projects">`. Include: `.projects__card-badge` (number), `.projects__card-category`, `.projects__card-title`, `.projects__card-meta`, `.projects__card-description`, `.projects__card-highlights`, `.projects__card-tags > .tag`.
 
 ## Key Content References
 
-**Years of Experience**: "33 years" appears in hero, about, footer, and console log. Needs annual update.
+**Years of Experience**: "33 years" appears in hero, about, impact stats, footer, and meta description. Needs annual update.
 
 **Contact Info**: danieltso@mail.com, (480) 228-0765, Tempe, Arizona
 
-**AI Integration**: Major differentiator (2025). Appears in: About "What I Bring" section, Skills 7th category, Education certifications, resume.html. Should be prominently featured.
+**AI Integration**: Major differentiator. Appears in: About "What I Bring" section, Skills 7th category ("AI Integration & Emerging Tech"), Education certifications, resume.html. Should be prominently featured.
 
 ## Important Constraints
 
@@ -86,7 +102,8 @@ Duplicate `.projects__card` in `<section id="projects">`. Include: `.projects__c
 - **Performance** — Target Lighthouse 90+, <2s load on 3G. Compress images before adding
 - **Content sensitivity** — Professional references include real phone numbers. No confidential project details
 - **Deployment** — Hosted on Vercel. Every push to `main` goes live immediately. Preview deployments created for PRs/branches. Test thoroughly before merging to main
+- **Gitignore note** — `*.png` files at repo root are ignored; only PNGs under `assets/` are tracked. Screenshots saved to repo root won't be committed
 
 ## Git Workflow
 
-Commit directly to `main` (auto-deploys to Vercel production). For major changes, optionally use feature branches — Vercel creates preview deployments for each branch/PR. Session notes tracked in `.claude/session-notes/` for development documentation.
+Commit directly to `main` (auto-deploys to Vercel production). For major changes, optionally use feature branches — Vercel creates preview deployments for each branch/PR.
