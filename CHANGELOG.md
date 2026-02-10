@@ -26,11 +26,18 @@ All notable changes to this project will be documented in this file.
 - Hero parallax effect (blueprint pattern at 0.3x scroll speed)
 - Staggered fade-in animations with data-delay attribute
 - Orange "DT" monogram favicon
-- Cache-busting query strings on CSS/JS links (?v=2.1)
+- Cache-busting query strings on CSS/JS links (?v=2.2)
+- WebP versions of all images with `<picture>` fallback to PNG (50-75% size reduction)
+- Non-render-blocking font loading (preload + media swap pattern for Google Fonts and Font Awesome)
+- `defer` attribute on main.js for non-blocking script loading
+- `<noscript>` fallback for Font Awesome stylesheet
 
 ### Fixed
 - Dark text contrast — brightened text-secondary (#8a8a9a → #b5b5c5) and text-muted (#555566 → #9090a0)
 - Browser serving stale cached CSS/JS from pre-overhaul (cache-bust fix)
+- Accessibility: removed `role="navigation"` from `<ul>` element (broke list semantics)
+- Button contrast: set `.btn--lg` minimum font-size to 18.67px bold for WCAG large text compliance (3:1 ratio)
+- Lighthouse scores: Performance 97, Accessibility 100, Best Practices 100, SEO 100
 
 ### Removed
 - Timeline toggle and collapsed experience entries

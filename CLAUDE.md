@@ -35,8 +35,9 @@ git add . && git commit -m "message" && git push origin main
 - **css/reset.css** — Browser normalization and base styles (dark mode defaults)
 - **css/styles.css** — All component styles (organized by section with comment headers and table of contents)
 - **js/main.js** — Interactive functionality: mobile menu, smooth scrolling, active nav highlighting, scroll-to-top, scroll progress bar, animated counters, hero parallax, staggered fade-in animations, focus trap
-- **assets/images/projects/** — AI-generated project images (4 PNGs, ~70-90KB each)
+- **assets/images/projects/** — AI-generated project images (WebP + PNG fallback, 18-34KB WebP)
 - **assets/images/favicon.png** — Orange "DT" monogram favicon (64x64)
+- **assets/images/hero-blueprint-pattern.webp** — Hero background pattern (18KB, converted from 1013KB PNG)
 - **assets/documents/resume.html** — Self-contained HTML resume (separate from main site, has its own inline styles)
 - **assets/documents/Daniel_Tso_Resume.pdf** — Downloadable resume linked from nav
 - **vercel.json** — Vercel deployment configuration (caching headers for assets, CSS, JS)
@@ -109,8 +110,8 @@ Duplicate `.projects__card` in `.projects__grid` within `<section id="projects">
 ## Important Constraints
 
 - **NO build tools** — No webpack, npm, bundlers. All CSS/JS must work directly in browser
-- **Accessibility** — WCAG 2.1 Level AA. Keyboard support on all interactive elements. 4.5:1 contrast minimum. ARIA labels on icon-only buttons. Orange focus outlines.
-- **Performance** — Target Lighthouse 90+, <2s load on 3G. Compress images before adding. Project images use `loading="lazy"`.
+- **Accessibility** — WCAG 2.1 Level AA. Keyboard support on all interactive elements. 4.5:1 contrast minimum (3:1 for large bold text). ARIA labels on icon-only buttons. Orange focus outlines.
+- **Performance** — Lighthouse scores: Performance 97, Accessibility 100, Best Practices 100, SEO 100. Images use WebP with PNG fallback via `<picture>` elements. Fonts load non-render-blocking (preload + media swap). JS is deferred. Project images use `loading="lazy"`.
 - **Content sensitivity** — Professional references include real phone numbers. No confidential project details
 - **Deployment** — Hosted on Vercel. Every push to `main` goes live immediately. Preview deployments created for PRs/branches. Test thoroughly before merging to main
 - **Gitignore note** — `*.png` files at repo root are ignored; only PNGs under `assets/` are tracked. Screenshots saved to repo root won't be committed
@@ -124,4 +125,21 @@ Duplicate `.projects__card` in `.projects__grid` within `<section id="projects">
 Commit directly to `main` (auto-deploys to Vercel production). For major changes, optionally use feature branches — Vercel creates preview deployments for each branch/PR. Note: Vercel auto-deploy via GitHub integration is NOT connected — use `npx vercel --prod` to deploy manually after pushing.
 
 ### Cache Busting
-CSS and JS files use `?v=X.X` query strings for cache busting (e.g., `styles.css?v=2.1`). **Bump the version number** whenever CSS or JS files change to ensure browsers fetch the new files. The current version is `2.1`.
+CSS and JS files use `?v=X.X` query strings for cache busting (e.g., `styles.css?v=2.2`). **Bump the version number** whenever CSS or JS files change to ensure browsers fetch the new files. The current version is `2.2`.
+
+### Image Optimization
+All images converted to WebP format for performance. Project images and hero blueprint use `<picture>` elements with WebP source and PNG fallback:
+```html
+<picture>
+  <source srcset="image.webp" type="image/webp">
+  <img src="image.png" alt="..." loading="lazy">
+</picture>
+```
+
+### Font Loading
+Google Fonts and Font Awesome load non-render-blocking using preload + media swap pattern:
+```html
+<link rel="preload" as="style" href="...">
+<link href="..." rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="..." rel="stylesheet"></noscript>
+```

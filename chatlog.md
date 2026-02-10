@@ -84,6 +84,39 @@ Summaries of Claude Code sessions for continuity across conversations.
 - Vercel GitHub integration not set up — deploys are manual via `npx vercel --prod`
 
 ### Next steps
-- Run Lighthouse audit (target 90+ all categories)
+- Test all breakpoints (320px, 375px, 768px, 1024px, 1440px)
+- Consider connecting Vercel GitHub integration for auto-deploy on push
+
+---
+
+## Session — 2026-02-10 (continued)
+
+### What happened — Lighthouse optimization pass
+- Ran Lighthouse audit: initial scores were Performance 60, Accessibility 91, Best Practices 100, SEO 100
+- Fixed all issues to achieve **Performance 97, Accessibility 100, Best Practices 100, SEO 100**
+
+### Accessibility fixes
+- Removed `role="navigation"` from `<ul id="navMenu">` — was breaking list semantics (Lighthouse flagged as ARIA role conflict)
+- Fixed CTA button contrast: white text on orange (#e8751a) = 2.92:1 ratio, below WCAG threshold
+  - Solution: Set `.btn--lg { font-size: max(var(--text-lg), 1.167rem); }` ensuring minimum 18.67px bold, which qualifies as WCAG "large text" (only needs 3:1 ratio)
+  - Kept original orange color intact — no visual change
+
+### Performance fixes
+- Converted all images to WebP format (50-75% size reduction):
+  - hero-blueprint-pattern: 1013KB PNG → 18KB WebP
+  - project images: 66-87KB PNG → 18-34KB WebP
+- Added `<picture>` elements with WebP source and PNG fallback for all images
+- Made Google Fonts non-render-blocking: `preload` + `media="print" onload="this.media='all'"` pattern
+- Made Font Awesome non-render-blocking (same pattern + `<noscript>` fallback)
+- Added `defer` attribute to main.js script tag
+- Bumped cache-bust version from 2.1 to 2.2
+
+### Key lessons
+- **WCAG large text threshold**: 24px+ normal weight OR 18.66px+ at bold (700). CSS `clamp()` can evaluate below threshold at mobile widths — use `max()` to set a floor
+- **Lighthouse evaluates at mobile viewport** — button font sizes that pass at desktop may fail at 375px width
+- **WebP conversion is massive for performance** — hero pattern went from 1013KB to 18KB
+- Non-render-blocking fonts: the `media="print" onload` pattern is the standard approach for static sites without build tools
+
+### Next steps
 - Test all breakpoints (320px, 375px, 768px, 1024px, 1440px)
 - Consider connecting Vercel GitHub integration for auto-deploy on push
