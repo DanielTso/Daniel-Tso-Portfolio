@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- SEO Meta Tags -->
-  <title>Daniel Tso | Construction Project Manager & Superintendent</title>
-  <meta name="description" content="Daniel Tso - Construction Project Manager with 33 years of field leadership experience and modern BIM coordination expertise. Specializing in mission-critical projects, heavy industrial, and large-scale construction management.">
+  <title>Daniel Tso | Construction Project Manager</title>
+  <meta name="description" content="Daniel Tso — 33 years of construction leadership. From trades to tech, field to management. Mission-critical, heavy industrial, and large-scale projects.">
   <meta name="keywords" content="construction project manager, superintendent, BIM coordinator, heavy industrial, mission critical, data center construction">
   <meta name="author" content="Daniel Tso">
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Daniel Tso | Construction Project Manager">
-  <meta property="og:description" content="33 years of construction excellence - Field leadership meets modern technology">
+  <meta property="og:description" content="33 years of construction leadership — precision meets technology">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://danieltso.vercel.app">
 
@@ -23,7 +23,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -34,6 +34,9 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -57,8 +60,8 @@
             <li class="nav__item"><a href="#credentials" class="nav__link">Credentials</a></li>
             <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
             <li class="nav__item">
-              <a href="assets/documents/Daniel_Tso_Resume.pdf" class="btn btn--primary btn--sm nav__resume-btn" download>
-                <i class="fas fa-download"></i> Resume
+              <a href="assets/documents/Daniel_Tso_Resume.pdf" class="btn btn--outline-orange btn--sm nav__resume-btn" download>
+                Resume
               </a>
             </li>
           </ul>
@@ -73,32 +76,13 @@
     <!-- ==================== HERO SECTION ==================== -->
     <section class="hero" id="home" aria-labelledby="hero-heading">
       <div class="hero__background"></div>
-      <div class="container">
-        <div class="hero__content">
-          <div class="hero__text">
-            <h1 class="hero__title animate-on-scroll" id="hero-heading">Daniel Tso</h1>
-            <h2 class="hero__subtitle animate-on-scroll">Construction Project Manager | Superintendent & BIM Coordinator</h2>
-            <p class="hero__description animate-on-scroll">
-              33 years building what matters — from trades to tech, field to management.
-            </p>
-            <div class="hero__location animate-on-scroll">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Tempe, Arizona | Available for Travel Nationwide</span>
-            </div>
-            <div class="hero__cta animate-on-scroll">
-              <a href="#projects" class="btn btn--primary btn--lg">View My Work</a>
-              <a href="#contact" class="btn btn--outline btn--lg">Get In Touch</a>
-            </div>
-          </div>
-          <div class="hero__image">
-            <img src="assets/images/daniel-tso-profile.jpg" alt="Daniel Tso - Construction Project Manager" class="hero__photo">
-          </div>
+      <div class="container hero__container">
+        <div class="hero__accent-line"></div>
+        <h1 class="hero__title animate-on-scroll" id="hero-heading">DANIEL TSO</h1>
+        <p class="hero__tagline animate-on-scroll">Construction. Technology. Precision.</p>
+        <div class="hero__cta animate-on-scroll">
+          <a href="#projects" class="btn btn--primary btn--lg">View My Work</a>
         </div>
-      </div>
-      <div class="hero__scroll-indicator">
-        <a href="#impact" aria-label="Scroll to impact section">
-          <i class="fas fa-chevron-down"></i>
-        </a>
       </div>
     </section>
 
@@ -108,110 +92,49 @@
       <div class="container">
         <div class="impact__grid">
           <div class="impact__stat animate-on-scroll">
-            <div class="impact__stat-icon"><i class="fas fa-calendar-alt"></i></div>
-            <span class="impact__stat-number">33</span>
+            <span class="impact__stat-number" data-target="33">0</span>
             <span class="impact__stat-label">Years Experience</span>
           </div>
           <div class="impact__stat animate-on-scroll">
-            <div class="impact__stat-icon"><i class="fas fa-building"></i></div>
-            <span class="impact__stat-number">11</span>
+            <span class="impact__stat-number" data-target="11">0</span>
             <span class="impact__stat-label">Years at Bechtel</span>
           </div>
           <div class="impact__stat animate-on-scroll">
-            <div class="impact__stat-icon"><i class="fas fa-users"></i></div>
-            <span class="impact__stat-number">110+</span>
+            <span class="impact__stat-number" data-target="110" data-suffix="+">0</span>
             <span class="impact__stat-label">Personnel Managed</span>
           </div>
           <div class="impact__stat animate-on-scroll">
-            <div class="impact__stat-icon"><i class="fas fa-dollar-sign"></i></div>
-            <span class="impact__stat-number">$60M+</span>
+            <span class="impact__stat-number" data-target="60" data-prefix="$" data-suffix="M+">0</span>
             <span class="impact__stat-label">Project Value</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== CAREER NARRATIVE (About) ==================== -->
+    <!-- ==================== ABOUT ==================== -->
     <section class="narrative" id="about" aria-labelledby="about-heading">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="about-heading">About Me</h2>
-          <div class="title-underline"></div>
-        </div>
+        <h2 class="section-title" id="about-heading">About</h2>
 
-        <div class="narrative__content">
-          <div class="narrative__text">
-            <h3 class="narrative__heading">From the Field to the Future of Project Management</h3>
-            <p class="narrative__paragraph">
-              I'm not your typical construction project manager. With <strong>33 years of experience</strong> spanning
-              the complete project lifecycle — from hands-on trades to engineering design to construction management — I bring
-              a perspective most professionals simply don't have. I started learning construction working summers with my
-              father, uncle, and brothers in the family business, mastering welding, rigging, ironworking, and heavy
-              equipment operation. After earning my BS in Construction Management, I worked as a <strong>CADD Designer
-              and Project Designer</strong> at engineering firms, then spent <strong>11 years with Bechtel
-              Corporation</strong> progressing from Field Engineer to Construction Manager on projects up to
-              <strong>$60 million</strong>. This unique journey means I understand trades work, design intent,
-              AND field constructability — a rare combination that makes me exceptionally effective at coordinating
-              complex projects.
-            </p>
-            <p class="narrative__paragraph">
-              My career has taken me across the United States managing diverse projects in mining, refineries,
-              manufacturing, power plants, and now mission-critical data centers. I've stepped up in crisis moments —
-              taking over troubled projects, managing during strikes, and delivering results when the pressure is
-              highest. Currently, I serve as <strong>QA BIM Coordinator</strong> for Dilling Group Inc on a
-              mission-critical Google Datacenter project, proving I can integrate design knowledge, field expertise,
-              and modern technical coordination seamlessly. With continuous training in <strong>BIM, ProCore, SAP,
-              AI integration</strong>, and emerging construction technologies, I represent the perfect combination:
-              old-school work ethic and field expertise married with new-school technology and coordination skills.
-            </p>
+        <p class="narrative__statement animate-on-scroll">
+          I've worked every phase of construction — trades, design, field, management. 33 years of knowing what actually happens when steel meets dirt.
+        </p>
+
+        <div class="narrative__pillars">
+          <div class="narrative__pillar animate-on-scroll" data-delay="0">
+            <i class="fas fa-route"></i>
+            <h3>Field to Office</h3>
+            <p>Started in the trades with family, earned a BS in Construction Management, spent 11 years at Bechtel rising to Construction Manager. I speak every language on a job site.</p>
           </div>
-
-          <!-- Career Journey Visual -->
-          <div class="narrative__journey">
-            <div class="narrative__journey-track">
-              <div class="narrative__journey-step">
-                <span class="narrative__journey-label">Trades</span>
-              </div>
-              <div class="narrative__journey-step">
-                <span class="narrative__journey-label">Design</span>
-              </div>
-              <div class="narrative__journey-step">
-                <span class="narrative__journey-label">Field</span>
-              </div>
-              <div class="narrative__journey-step">
-                <span class="narrative__journey-label">Management</span>
-              </div>
-              <div class="narrative__journey-step">
-                <span class="narrative__journey-label">BIM / AI</span>
-              </div>
-            </div>
+          <div class="narrative__pillar animate-on-scroll" data-delay="100">
+            <i class="fas fa-fire-extinguisher"></i>
+            <h3>Crisis Tested</h3>
+            <p>Took over a $60M troubled project mid-stream. Managed operations during a union strike. I don't avoid pressure — I deliver through it.</p>
           </div>
-
-          <!-- What I Bring -->
-          <div class="narrative__values">
-            <h3 class="narrative__values-heading">What I Bring to Your Team</h3>
-            <ul class="narrative__values-list">
-              <li class="narrative__value-item animate-on-scroll">
-                <i class="fas fa-route"></i>
-                <strong>Complete Project Lifecycle Perspective:</strong> Trades → Design → Field → Management. I've worked every phase and understand how decisions at each stage impact the entire project.
-              </li>
-              <li class="narrative__value-item animate-on-scroll">
-                <i class="fas fa-fire-extinguisher"></i>
-                <strong>Crisis Management & Turnaround Experience:</strong> Stepped into troubled projects, managed during strikes, and consistently delivered results when pressure is highest.
-              </li>
-              <li class="narrative__value-item animate-on-scroll">
-                <i class="fas fa-laptop-code"></i>
-                <strong>Modern Technology Integration:</strong> Proficient in BIM coordination, ProCore, SAP, and paperless environments. Currently integrating AI into project workflows for emails, proposals, RFIs, and document summarization.
-              </li>
-              <li class="narrative__value-item animate-on-scroll">
-                <i class="fas fa-users-cog"></i>
-                <strong>Proven Leadership at Scale:</strong> Managed 110+ personnel on $60M+ projects while maintaining flawless safety records and delivering ahead of schedule.
-              </li>
-              <li class="narrative__value-item animate-on-scroll">
-                <i class="fas fa-brain"></i>
-                <strong>Continuous Learning Mindset:</strong> Completed advanced training in AI Agent Development, AI Engineering, and Prompt Engineering to stay current with emerging technologies transforming construction management.
-              </li>
-            </ul>
+          <div class="narrative__pillar animate-on-scroll" data-delay="200">
+            <i class="fas fa-robot"></i>
+            <h3>AI Integrated</h3>
+            <p>Trained in AI engineering, prompt engineering, and agent development. Using AI for RFIs, proposals, and document analysis — today, not someday.</p>
           </div>
         </div>
       </div>
@@ -220,736 +143,218 @@
     <!-- ==================== FEATURED PROJECTS ==================== -->
     <section class="projects" id="projects" aria-labelledby="projects-heading">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="projects-heading">Featured Projects</h2>
-          <div class="title-underline"></div>
-          <p class="section-subtitle">Delivering excellence across mission-critical and heavy industrial construction</p>
-        </div>
+        <h2 class="section-title" id="projects-heading">Projects</h2>
 
         <div class="projects__grid">
-          <!-- Project 01: Google Datacenter -->
-          <div class="projects__card animate-on-scroll">
-            <span class="projects__card-badge">01</span>
-            <span class="projects__card-category">Mission Critical</span>
-            <h3 class="projects__card-title">Google Datacenter</h3>
-            <p class="projects__card-meta">
-              <span class="projects__card-client">Dilling Group Inc</span>
-              <span class="separator">&middot;</span>
-              <span class="projects__card-year">2024&ndash;Present</span>
-            </p>
-            <p class="projects__card-description">
-              QA BIM Coordinator for mission-critical datacenter construction. Supporting BIM coordination
-              by identifying field issues, documenting as-built conditions, and reporting for correction to ensure
-              model accuracy and seamless field execution.
-            </p>
-            <ul class="projects__card-highlights">
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> Field issue identification and documentation</li>
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> Quality assurance for mission-critical infrastructure</li>
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> As-built coordination and reporting</li>
-            </ul>
-            <div class="projects__card-tags">
+          <!-- Project: Google Datacenter -->
+          <div class="projects__card animate-on-scroll" data-delay="0">
+            <div class="projects__card-image">
+              <img src="assets/images/projects/project-google-datacenter.png" alt="Google Datacenter project — server racks and structured cabling" loading="lazy">
+            </div>
+            <div class="projects__card-body">
+              <span class="projects__card-category">Mission Critical</span>
+              <h3 class="projects__card-title">Google Datacenter</h3>
+              <p class="projects__card-meta">Dilling Group Inc &middot; 2024&ndash;Present</p>
+              <p class="projects__card-impact">QA BIM Coordinator ensuring model accuracy and field execution on mission-critical infrastructure.</p>
+              <div class="projects__card-tags">
+                <span class="tag">BIM</span>
+                <span class="tag">Data Centers</span>
+                <span class="tag">QA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project: Mission Mine -->
+          <div class="projects__card animate-on-scroll" data-delay="100">
+            <div class="projects__card-image">
+              <img src="assets/images/projects/project-mission-mine.png" alt="Mission Mine Mill — heavy industrial mining expansion" loading="lazy">
+            </div>
+            <div class="projects__card-body">
+              <span class="projects__card-category">Mining</span>
+              <h3 class="projects__card-title">Mission Mine Mill Expansion</h3>
+              <p class="projects__card-meta">GMS Mining &middot; 2021&ndash;2022</p>
+              <p class="projects__card-impact">Stepped into a $60M troubled project as Superintendent, stabilized operations, and managed 110 personnel through completion.</p>
+              <div class="projects__card-tags">
+                <span class="tag">$60M</span>
+                <span class="tag">110 Personnel</span>
+                <span class="tag">Turnaround</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project: Nestle Purina -->
+          <div class="projects__card animate-on-scroll" data-delay="200">
+            <div class="projects__card-image">
+              <img src="assets/images/projects/project-nestle-purina.png" alt="Nestle Purina manufacturing — process piping installation" loading="lazy">
+            </div>
+            <div class="projects__card-body">
+              <span class="projects__card-category">Manufacturing</span>
+              <h3 class="projects__card-title">Nestle Purina Plant</h3>
+              <p class="projects__card-meta">Robinson Construction &middot; 2024&ndash;2025</p>
+              <p class="projects__card-impact">Led 18-person crew installing process piping. Delivered three weeks ahead of schedule with a flawless safety record.</p>
+              <div class="projects__card-tags">
+                <span class="tag">Ahead of Schedule</span>
+                <span class="tag">Safety</span>
+                <span class="tag">ProCore</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project: LUCID Motors -->
+          <div class="projects__card animate-on-scroll" data-delay="300">
+            <div class="projects__card-image">
+              <img src="assets/images/projects/project-lucid-motors.png" alt="LUCID Motors production facility — structural steel" loading="lazy">
+            </div>
+            <div class="projects__card-body">
+              <span class="projects__card-category">Automotive</span>
+              <h3 class="projects__card-title">LUCID Motors Phase 2</h3>
+              <p class="projects__card-meta">QEIS Inc &middot; 2022&ndash;2023</p>
+              <p class="projects__card-impact">Triple-promoted from Foreman to Superintendent. Managed 42 tradesmen with zero-tolerance QA/QC on precision manufacturing.</p>
+              <div class="projects__card-tags">
+                <span class="tag">Career Growth</span>
+                <span class="tag">QA/QC</span>
+                <span class="tag">Precision</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <section class="experience" id="experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <h2 class="section-title" id="experience-heading">Experience</h2>
+
+        <div class="experience__grid">
+          <div class="experience__card animate-on-scroll" data-delay="0">
+            <h3 class="experience__title">QA BIM Coordinator</h3>
+            <h4 class="experience__company">Dilling Group Inc</h4>
+            <span class="experience__date">Aug 2024 &ndash; Present</span>
+            <p class="experience__desc">BIM quality assurance on Google's mission-critical datacenter — bridging field expertise with technical coordination.</p>
+            <div class="experience__tags">
               <span class="tag">BIM</span>
-              <span class="tag">Data Centers</span>
               <span class="tag">Mission Critical</span>
+              <span class="tag">Data Centers</span>
             </div>
           </div>
 
-          <!-- Project 02: Mission Mine -->
-          <div class="projects__card animate-on-scroll">
-            <span class="projects__card-badge">02</span>
-            <span class="projects__card-category">Mining</span>
-            <h3 class="projects__card-title">Mission Mine Mill Northside Expansion</h3>
-            <p class="projects__card-meta">
-              <span class="projects__card-client">GMS Mining</span>
-              <span class="separator">&middot;</span>
-              <span class="projects__card-year">2021&ndash;2022</span>
-            </p>
-            <p class="projects__card-description">
-              <strong>$60M expansion project.</strong> Stepped in as Superintendent after previous
-              superintendent dismissal. Successfully managed 110 personnel through demolition and
-              installation phases, stabilizing troubled project.
-            </p>
-            <ul class="projects__card-highlights">
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> $60M project value</li>
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> 110+ personnel managed</li>
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> Turnaround leadership</li>
-            </ul>
-            <div class="projects__card-tags">
-              <span class="tag">$60M</span>
-              <span class="tag">Mining</span>
-              <span class="tag">110 Personnel</span>
-            </div>
-          </div>
-
-          <!-- Project 03: Nestle Purina -->
-          <div class="projects__card animate-on-scroll">
-            <span class="projects__card-badge">03</span>
-            <span class="projects__card-category">Manufacturing</span>
-            <h3 class="projects__card-title">Nestle Purina Dog Food Plant</h3>
-            <p class="projects__card-meta">
-              <span class="projects__card-client">Robinson Construction</span>
-              <span class="separator">&middot;</span>
-              <span class="projects__card-year">2024&ndash;2025</span>
-            </p>
-            <p class="projects__card-description">
-              Mechanical Superintendent managing 18-person crew installing process piping, hoppers, bins, and airlocks.
-              Completed deliverables <strong>three weeks ahead of schedule</strong> with flawless safety record.
-            </p>
-            <ul class="projects__card-highlights">
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> Completed 3 weeks early</li>
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> Perfect safety record</li>
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> ProCore project management</li>
-            </ul>
-            <div class="projects__card-tags">
+          <div class="experience__card animate-on-scroll" data-delay="100">
+            <h3 class="experience__title">Mechanical Superintendent</h3>
+            <h4 class="experience__company">Robinson Construction</h4>
+            <span class="experience__date">Aug 2024 &ndash; Apr 2025</span>
+            <p class="experience__desc">Process piping installation at Nestle Purina. 18-person crew, completed three weeks early, flawless safety.</p>
+            <div class="experience__tags">
               <span class="tag">ProCore</span>
-              <span class="tag">On-Time Delivery</span>
+              <span class="tag">Manufacturing</span>
               <span class="tag">Safety</span>
             </div>
           </div>
 
-          <!-- Project 04: LUCID Motors -->
-          <div class="projects__card animate-on-scroll">
-            <span class="projects__card-badge">04</span>
-            <span class="projects__card-category">Automotive</span>
-            <h3 class="projects__card-title">LUCID Motors Phase 2 Production Facility</h3>
-            <p class="projects__card-meta">
-              <span class="projects__card-client">QEIS Inc</span>
-              <span class="separator">&middot;</span>
-              <span class="projects__card-year">2022&ndash;2023</span>
-            </p>
-            <p class="projects__card-description">
-              <strong>Promoted from Foreman to General Foreman to Crafts Superintendent</strong> during
-              project. Managed 42 tradesmen constructing structural supports for three production lines
-              with zero-tolerance QA/QC requirements.
-            </p>
-            <ul class="projects__card-highlights">
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> Triple promotion during project</li>
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> Exacting QA/QC standards</li>
-              <li class="projects__card-highlight"><i class="fas fa-check-circle"></i> High-precision installations</li>
-            </ul>
-            <div class="projects__card-tags">
-              <span class="tag">Career Growth</span>
-              <span class="tag">QA/QC</span>
-              <span class="tag">Manufacturing</span>
+          <div class="experience__card animate-on-scroll" data-delay="200">
+            <h3 class="experience__title">Pipe Superintendent</h3>
+            <h4 class="experience__company">Western Industrial</h4>
+            <span class="experience__date">Jan 2024 &ndash; Aug 2024</span>
+            <p class="experience__desc">Directed 21-person crew on Freeport-McMoran acid plant expansion. Managed scheduling, procurement, and RFI resolution.</p>
+            <div class="experience__tags">
+              <span class="tag">Mining</span>
+              <span class="tag">Heavy Industrial</span>
+              <span class="tag">MS Project</span>
+            </div>
+          </div>
+
+          <div class="experience__card animate-on-scroll" data-delay="300">
+            <h3 class="experience__title">Maintenance Superintendent</h3>
+            <h4 class="experience__company">ASARCO LLC</h4>
+            <span class="experience__date">May 2023 &ndash; Jan 2024</span>
+            <p class="experience__desc">Crisis management during union strike. Maintained continuous mine operations across mill, crusher, and acid plant systems.</p>
+            <div class="experience__tags">
+              <span class="tag">SAP</span>
+              <span class="tag">Crisis Management</span>
+              <span class="tag">Mining</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== EXPERIENCE TIMELINE ==================== -->
-    <section class="experience" id="experience" aria-labelledby="experience-heading">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="experience-heading">Professional Experience</h2>
-          <div class="title-underline"></div>
-          <p class="section-subtitle">A proven track record of delivering complex projects across diverse industries</p>
-        </div>
-
-        <div class="timeline">
-          <!-- Entry 1: Current Position — Dilling Group -->
-          <div class="timeline__item animate-on-scroll">
-            <div class="timeline__marker"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="timeline__job-title">QA BIM Coordinator</h3>
-                <span class="timeline__badge">Current</span>
-              </div>
-              <h4 class="timeline__company">Dilling Group Inc</h4>
-              <p class="timeline__meta">
-                <i class="fas fa-calendar"></i> August 2024 - Present
-                <span class="separator">|</span>
-                <i class="fas fa-map-marker-alt"></i> Council Bluffs, IA
-              </p>
-              <p class="timeline__description">
-                <strong>Project:</strong> Google Datacenter - Mission Critical Construction
-              </p>
-              <ul class="timeline__responsibilities">
-                <li>Support BIM quality assurance for mission-critical datacenter infrastructure</li>
-                <li>Identify and document field issues for model accuracy coordination</li>
-                <li>Report field conditions to engineering teams for correction and updates</li>
-                <li>Document as-built conditions ensuring accurate project records</li>
-                <li>Demonstrate successful integration of field expertise with technical coordination</li>
-              </ul>
-              <div class="timeline__tags">
-                <span class="timeline__tag">BIM Coordination</span>
-                <span class="timeline__tag">Quality Assurance</span>
-                <span class="timeline__tag">Mission Critical</span>
-                <span class="timeline__tag">Data Centers</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Entry 2: Robinson Construction -->
-          <div class="timeline__item animate-on-scroll">
-            <div class="timeline__marker"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="timeline__job-title">Mechanical Superintendent</h3>
-              </div>
-              <h4 class="timeline__company">Robinson Construction</h4>
-              <p class="timeline__meta">
-                <i class="fas fa-calendar"></i> August 2024 - April 2025
-                <span class="separator">|</span>
-                <i class="fas fa-map-marker-alt"></i> Batavia, OH
-              </p>
-              <p class="timeline__description">
-                <strong>Project:</strong> Nestle Purina Dog Food Plant
-              </p>
-              <ul class="timeline__responsibilities">
-                <li>Led multidisciplinary crew of 18 installing process piping, hoppers, bins, and airlocks</li>
-                <li>Maintained strict adherence to safety protocols with flawless safety record</li>
-                <li>Used ProCore for progress tracking and management reporting</li>
-                <li><strong>Completed deliverables three weeks ahead of schedule</strong> through efficient planning</li>
-              </ul>
-              <div class="timeline__tags">
-                <span class="timeline__tag">ProCore</span>
-                <span class="timeline__tag">Process Piping</span>
-                <span class="timeline__tag">Manufacturing</span>
-                <span class="timeline__tag">Safety Excellence</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Entry 3: Western Industrial -->
-          <div class="timeline__item animate-on-scroll">
-            <div class="timeline__marker"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="timeline__job-title">Pipe Superintendent</h3>
-              </div>
-              <h4 class="timeline__company">Western Industrial</h4>
-              <p class="timeline__meta">
-                <i class="fas fa-calendar"></i> January 2024 - August 2024
-                <span class="separator">|</span>
-                <i class="fas fa-map-marker-alt"></i> Miami, AZ
-              </p>
-              <p class="timeline__description">
-                <strong>Project:</strong> Freeport-McMoran Copper & Gold Acid Plant
-              </p>
-              <ul class="timeline__responsibilities">
-                <li>Directed 21-person crew on major acid plant expansion project</li>
-                <li>Managed scheduling via Microsoft Project and coordinated material procurement</li>
-                <li>Resolved design conflicts through well-documented RFIs to maintain project flow</li>
-                <li>Ensured compliance with stringent environmental and safety regulations</li>
-              </ul>
-              <div class="timeline__tags">
-                <span class="timeline__tag">MS Project</span>
-                <span class="timeline__tag">Mining</span>
-                <span class="timeline__tag">Heavy Industrial</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Entry 4: ASARCO -->
-          <div class="timeline__item animate-on-scroll">
-            <div class="timeline__marker"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="timeline__job-title">Temporary Maintenance Superintendent</h3>
-              </div>
-              <h4 class="timeline__company">ASARCO LLC</h4>
-              <p class="timeline__meta">
-                <i class="fas fa-calendar"></i> May 2023 - January 2024
-                <span class="separator">|</span>
-                <i class="fas fa-map-marker-alt"></i> Kearney, AZ
-              </p>
-              <ul class="timeline__responsibilities">
-                <li><strong>Crisis Management:</strong> Oversaw contractor maintenance during union strike</li>
-                <li>Managed operations across mill, crusher, conveying systems, acid plant, and tailings</li>
-                <li>Used SAP to manage work orders and material procurement</li>
-                <li>Directed five contractor teams ensuring continuous mine operation</li>
-                <li>Maintained production continuity during critical labor disruption</li>
-              </ul>
-              <div class="timeline__tags">
-                <span class="timeline__tag">SAP</span>
-                <span class="timeline__tag">Crisis Management</span>
-                <span class="timeline__tag">Mining Operations</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Collapsed older entries -->
-          <div class="timeline__collapsed" id="timelineCollapsed">
-            <!-- Entry 5: QEIS Inc -->
-            <div class="timeline__item animate-on-scroll">
-              <div class="timeline__marker"></div>
-              <div class="timeline__content">
-                <div class="timeline__header">
-                  <h3 class="timeline__job-title">Crafts Superintendent</h3>
-                </div>
-                <h4 class="timeline__company">QEIS Inc</h4>
-                <p class="timeline__meta">
-                  <i class="fas fa-calendar"></i> November 2022 - May 2023
-                  <span class="separator">|</span>
-                  <i class="fas fa-map-marker-alt"></i> Casa Grande, AZ
-                </p>
-                <p class="timeline__description">
-                  <strong>Project:</strong> LUCID Motors Phase 2 Production Facility
-                </p>
-                <ul class="timeline__responsibilities">
-                  <li><strong>Promoted from Foreman to General Foreman, then to Crafts Superintendent</strong></li>
-                  <li>Managed 42 tradesmen constructing structural supports for three production lines</li>
-                  <li>Met exacting QA/QC requirements with zero tolerance for error</li>
-                  <li>Coordinated with manufacturing engineering on precision installations</li>
-                </ul>
-                <div class="timeline__tags">
-                  <span class="timeline__tag">Career Advancement</span>
-                  <span class="timeline__tag">QA/QC</span>
-                  <span class="timeline__tag">Manufacturing</span>
-                  <span class="timeline__tag">Automotive</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Entry 6: GMS Mining -->
-            <div class="timeline__item animate-on-scroll">
-              <div class="timeline__marker"></div>
-              <div class="timeline__content">
-                <div class="timeline__header">
-                  <h3 class="timeline__job-title">Superintendent</h3>
-                </div>
-                <h4 class="timeline__company">GMS Mining</h4>
-                <p class="timeline__meta">
-                  <i class="fas fa-calendar"></i> August 2021 - November 2022
-                  <span class="separator">|</span>
-                  <i class="fas fa-map-marker-alt"></i> Sahuarita, AZ
-                </p>
-                <p class="timeline__description">
-                  <strong>Project:</strong> Mission Mine Mill Northside Expansion - $60M
-                </p>
-                <ul class="timeline__responsibilities">
-                  <li><strong>Stepped in after superintendent dismissal to rescue troubled project</strong></li>
-                  <li>Managed 110 personnel during demolition and installation phases</li>
-                  <li>Stabilized project timeline and budget after significant delays</li>
-                  <li>Successfully completed project scope before new superintendent was hired</li>
-                </ul>
-                <div class="timeline__tags">
-                  <span class="timeline__tag">$60M Project</span>
-                  <span class="timeline__tag">110+ Personnel</span>
-                  <span class="timeline__tag">Mining</span>
-                  <span class="timeline__tag">Turnaround</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Entry 7: Precision Industrial -->
-            <div class="timeline__item animate-on-scroll">
-              <div class="timeline__marker"></div>
-              <div class="timeline__content">
-                <div class="timeline__header">
-                  <h3 class="timeline__job-title">Superintendent</h3>
-                </div>
-                <h4 class="timeline__company">Precision Industrial Contractors</h4>
-                <p class="timeline__meta">
-                  <i class="fas fa-calendar"></i> February 2021 - August 2021
-                  <span class="separator">|</span>
-                  <i class="fas fa-map-marker-alt"></i> Hamilton, OH
-                </p>
-                <p class="timeline__description">
-                  <strong>Project:</strong> ESNOVA Prototype Racking System (Confidential)
-                </p>
-                <ul class="timeline__responsibilities">
-                  <li>Managed 45-member crew on confidential robotics-enabled racking system</li>
-                  <li><strong>Worked in fully paperless environment</strong> using advanced software coordination tools</li>
-                  <li>Coordinated closely with Spanish engineers maintaining strict confidentiality protocols</li>
-                  <li>Delivered innovative warehouse automation infrastructure on time</li>
-                </ul>
-                <div class="timeline__tags">
-                  <span class="timeline__tag">Paperless Environment</span>
-                  <span class="timeline__tag">Robotics</span>
-                  <span class="timeline__tag">Innovation</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Entry 8: Bechtel Corporation -->
-            <div class="timeline__item animate-on-scroll">
-              <div class="timeline__marker"></div>
-              <div class="timeline__content">
-                <div class="timeline__header">
-                  <h3 class="timeline__job-title">Construction Manager | Project Superintendent | Craft Superintendent | Field Engineer</h3>
-                </div>
-                <h4 class="timeline__company">Bechtel Corporation</h4>
-                <p class="timeline__meta">
-                  <i class="fas fa-calendar"></i> 2009 - 2020 (11 Years)
-                  <span class="separator">|</span>
-                  <i class="fas fa-map-marker-alt"></i> Various Locations, United States
-                </p>
-                <ul class="timeline__responsibilities">
-                  <li><strong>Progressed through four leadership levels over 11 years</strong> at world's premier engineering and construction company</li>
-                  <li><strong>Construction Manager:</strong> Directed overall field construction operations, managed superintendent teams, coordinated with engineering and project controls, ensured delivery on schedule and budget</li>
-                  <li><strong>Project Superintendent:</strong> Oversaw multiple crafts and trades on large-scale industrial projects, coordinated with project management and client stakeholders</li>
-                  <li><strong>Craft Superintendent:</strong> Led specialized trade crews, ensured quality standards and safety compliance, managed day-to-day field operations and productivity</li>
-                  <li><strong>Field Engineer:</strong> Supported construction with technical expertise, managed RFIs and submittals, coordinated between design and field teams</li>
-                  <li>Worked on diverse projects: refineries, power plants, LNG facilities, mining operations, and heavy industrial construction</li>
-                  <li>Developed comprehensive project management skills combining field execution with office coordination</li>
-                </ul>
-                <div class="timeline__tags">
-                  <span class="timeline__tag">Bechtel</span>
-                  <span class="timeline__tag">Construction Management</span>
-                  <span class="timeline__tag">11 Years</span>
-                  <span class="timeline__tag">Career Progression</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Entry 9: Dibbling Engineering -->
-            <div class="timeline__item animate-on-scroll">
-              <div class="timeline__marker"></div>
-              <div class="timeline__content">
-                <div class="timeline__header">
-                  <h3 class="timeline__job-title">Project Designer | CADD Designer</h3>
-                </div>
-                <h4 class="timeline__company">Dibbling Engineering</h4>
-                <p class="timeline__meta">
-                  <i class="fas fa-calendar"></i> 2004 - 2007
-                  <span class="separator">|</span>
-                  <i class="fas fa-map-marker-alt"></i> Phoenix, AZ
-                </p>
-                <ul class="timeline__responsibilities">
-                  <li><strong>Promoted from CADD Designer to Project Designer</strong> after two years in Infrastructure Department</li>
-                  <li>Designed infrastructure projects: water, sewer, drainage, and transportation systems</li>
-                  <li>Created construction documents, technical drawings, and design specifications</li>
-                  <li>Coordinated with civil engineers, surveyors, and project managers on project delivery</li>
-                  <li>Developed strong understanding of design intent and constructability—foundation for later construction roles</li>
-                </ul>
-                <div class="timeline__tags">
-                  <span class="timeline__tag">Engineering Design</span>
-                  <span class="timeline__tag">Infrastructure</span>
-                  <span class="timeline__tag">CAD</span>
-                  <span class="timeline__tag">Project Design</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Toggle Button -->
-          <button class="timeline__toggle" id="timelineToggle" aria-expanded="false" aria-controls="timelineCollapsed">
-            View Full History <i class="fas fa-chevron-down"></i>
-          </button>
-
-          <!-- 33 Years Summary -->
-          <div class="timeline__item timeline__summary">
-            <div class="timeline__marker"></div>
-            <div class="timeline__content">
-              <h3 class="timeline__summary-title">
-                <i class="fas fa-history"></i> 33 Years of Construction Excellence
-              </h3>
-              <p class="timeline__summary-text">
-                From learning trades with family to engineering design to construction management, my career spans the complete project lifecycle. Started working summers with family construction business (1992-1998) learning welding, rigging, ironworking, and heavy equipment. Progressed through engineering design at Stanley Engineers and Dibbling Engineering, then <strong>11 years at Bechtel Corporation</strong> to Construction Manager, working on diverse projects including infrastructure design, mining operations, refineries, power plants, manufacturing facilities, LNG projects, and mission-critical data centers across the United States. This comprehensive background—understanding trades, design, field, and management—enables exceptional project coordination.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== SKILLS & CREDENTIALS ==================== -->
+    <!-- ==================== CREDENTIALS ==================== -->
     <section class="credentials" id="credentials" aria-labelledby="credentials-heading">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="credentials-heading">Skills & Credentials</h2>
-          <div class="title-underline"></div>
-          <p class="section-subtitle">A unique combination of field leadership, modern technical capabilities, and continuous learning</p>
+        <h2 class="section-title" id="credentials-heading">Skills</h2>
+
+        <div class="credentials__grid">
+          <div class="credentials__tile animate-on-scroll" data-delay="0">
+            <i class="fas fa-project-diagram"></i>
+            <span>Project Management</span>
+          </div>
+          <div class="credentials__tile animate-on-scroll" data-delay="50">
+            <i class="fas fa-laptop-code"></i>
+            <span>BIM &amp; Technical</span>
+          </div>
+          <div class="credentials__tile animate-on-scroll" data-delay="100">
+            <i class="fas fa-users-cog"></i>
+            <span>Field Leadership</span>
+          </div>
+          <div class="credentials__tile animate-on-scroll" data-delay="150">
+            <i class="fas fa-shield-alt"></i>
+            <span>Safety &amp; Compliance</span>
+          </div>
+          <div class="credentials__tile credentials__tile--accent animate-on-scroll" data-delay="200">
+            <i class="fas fa-robot"></i>
+            <span>AI Integration</span>
+          </div>
+          <div class="credentials__tile animate-on-scroll" data-delay="250">
+            <i class="fas fa-tools"></i>
+            <span>Trades &amp; Welding</span>
+          </div>
         </div>
 
-        <div class="credentials__layout">
-          <!-- Skills Grid (Left) -->
-          <div class="credentials__skills">
-            <!-- Project Management & Planning -->
-            <div class="credentials__skill-group animate-on-scroll">
-              <div class="credentials__skill-header">
-                <i class="fas fa-project-diagram"></i>
-                <h3>Project Management & Planning</h3>
-              </div>
-              <ul class="credentials__skill-list">
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Microsoft Project - Scheduling & Planning</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Budget Management ($60M+ Projects)</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Resource Allocation & Crew Management</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> RFI & Change Order Management</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Stakeholder Communication</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Project Documentation & Reporting</li>
-              </ul>
-            </div>
-
-            <!-- Technical Coordination -->
-            <div class="credentials__skill-group animate-on-scroll">
-              <div class="credentials__skill-header">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Technical Coordination</h3>
-              </div>
-              <ul class="credentials__skill-list">
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> BIM Coordination & Quality Assurance</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> ProCore - Project Management Software</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> SAP - Enterprise Resource Planning</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> AutoCAD, MicroStation, Bluebeam</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Digital Project Management</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Paperless Environment Operations</li>
-              </ul>
-            </div>
-
-            <!-- Field Leadership -->
-            <div class="credentials__skill-group animate-on-scroll">
-              <div class="credentials__skill-header">
-                <i class="fas fa-users-cog"></i>
-                <h3>Field Leadership</h3>
-              </div>
-              <ul class="credentials__skill-list">
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Crew Management (up to 110 Personnel)</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Union & Non-Union Environments</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Multi-Trade Coordination</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Mentoring & Development</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Problem-Solving Under Pressure</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Crisis Management & Turnarounds</li>
-              </ul>
-            </div>
-
-            <!-- Safety & Compliance -->
-            <div class="credentials__skill-group animate-on-scroll">
-              <div class="credentials__skill-header">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Safety & Compliance</h3>
-              </div>
-              <ul class="credentials__skill-list">
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> OSHA 10 Certified</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> MSHA Certified - Experienced Miner</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Safety Program Implementation</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Flawless Safety Record Achievement</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Environmental Compliance</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Quality Control & Assurance</li>
-              </ul>
-            </div>
-
-            <!-- Industry Expertise -->
-            <div class="credentials__skill-group animate-on-scroll">
-              <div class="credentials__skill-header">
-                <i class="fas fa-industry"></i>
-                <h3>Industry Expertise</h3>
-              </div>
-              <ul class="credentials__skill-list">
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Mission Critical / Data Centers</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Mining & Heavy Industrial</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Refineries & Petrochemical</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Manufacturing Facilities</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Power Plants & Energy</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Commercial & Infrastructure</li>
-              </ul>
-            </div>
-
-            <!-- Technical Skills -->
-            <div class="credentials__skill-group animate-on-scroll">
-              <div class="credentials__skill-header">
-                <i class="fas fa-tools"></i>
-                <h3>Technical Skills</h3>
-              </div>
-              <ul class="credentials__skill-list">
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Blueprint Interpretation</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> AWS D1.1 Certified Welder (SMAW & FCAW)</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Process Piping Installation</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Structural Steel Erection</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Equipment Installation</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Material Procurement</li>
-              </ul>
-            </div>
-
-            <!-- AI Integration & Emerging Technology -->
-            <div class="credentials__skill-group animate-on-scroll">
-              <div class="credentials__skill-header">
-                <i class="fas fa-robot"></i>
-                <h3>AI Integration & Emerging Tech</h3>
-              </div>
-              <ul class="credentials__skill-list">
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> AI-Powered Email & Proposal Writing</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Automated RFI Generation & Management</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> AI Document Summarization & Analysis</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Agent AI Development & Deployment</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> Prompt Engineering for Construction Workflows</li>
-                <li class="credentials__skill-item"><i class="fas fa-check"></i> AI-Enhanced Project Documentation</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Education & Certifications (Right) -->
-          <div class="credentials__education">
-            <!-- Education -->
-            <div class="credentials__education-section">
-              <h3 class="credentials__column-title">
-                <i class="fas fa-graduation-cap"></i> Education
-              </h3>
-
-              <div class="credentials__education-item">
-                <h4 class="credentials__degree">Bachelor of Science in Construction Management</h4>
-                <p class="credentials__school">Arizona State University</p>
-                <p class="credentials__location">Tempe, Arizona</p>
-                <p class="credentials__year">1998</p>
-              </div>
-
-              <div class="credentials__education-item">
-                <h4 class="credentials__degree">Associate of Applied Science in Construction Management</h4>
-                <p class="credentials__school">Phoenix College</p>
-                <p class="credentials__location">Phoenix, Arizona</p>
-                <p class="credentials__year">1995</p>
-              </div>
-
-              <div class="credentials__education-item">
-                <h4 class="credentials__degree">Technical Associate's Degree in Drafting/CAD Technology</h4>
-                <p class="credentials__school">High-Tech Institute</p>
-                <p class="credentials__location">Phoenix, Arizona</p>
-                <p class="credentials__year">1993</p>
-              </div>
-            </div>
-
-            <!-- Certifications -->
-            <div class="credentials__certifications-section">
-              <h3 class="credentials__column-title">
-                <i class="fas fa-certificate"></i> Certifications & Training
-              </h3>
-
-              <ul class="credentials__certifications-list">
-                <li>
-                  <i class="fas fa-check-circle"></i>
-                  <div class="credentials__cert-content">
-                    <strong>AI Engineering & Integration</strong>
-                    <span>Advanced training in AI workflow automation for construction</span>
-                  </div>
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>
-                  <div class="credentials__cert-content">
-                    <strong>AI Agent Development</strong>
-                    <span>Building autonomous AI agents for project management tasks</span>
-                  </div>
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>
-                  <div class="credentials__cert-content">
-                    <strong>Prompt Engineering Certification</strong>
-                    <span>Advanced techniques for construction industry applications</span>
-                  </div>
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>
-                  <div class="credentials__cert-content">
-                    <strong>AWS D1.1 Certified Welder</strong>
-                    <span>SMAW & FCAW (3G & 4G)</span>
-                  </div>
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>
-                  <div class="credentials__cert-content">
-                    <strong>MSHA Certified</strong>
-                    <span>Experienced Miner</span>
-                  </div>
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>
-                  <div class="credentials__cert-content">
-                    <strong>OSHA 10 Training</strong>
-                    <span>Construction Safety</span>
-                  </div>
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>
-                  <div class="credentials__cert-content">
-                    <strong>TWIC Card</strong>
-                    <span>Transportation Worker Identification Credential</span>
-                  </div>
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>
-                  <div class="credentials__cert-content">
-                    <strong>NCCER Training</strong>
-                    <span>Foreman, Ironworker, Forklift, Superintendent</span>
-                  </div>
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>
-                  <div class="credentials__cert-content">
-                    <strong>Aerial Lift Certified</strong>
-                    <span>Mobile Elevated Work Platforms</span>
-                  </div>
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>
-                  <div class="credentials__cert-content">
-                    <strong>Confined Space Entry</strong>
-                    <span>Safety Certification</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <div class="credentials__bar animate-on-scroll">
+          <span>BS Construction Management, ASU '98</span>
+          <span class="credentials__bar-divider">|</span>
+          <span>OSHA 10</span>
+          <span class="credentials__bar-divider">|</span>
+          <span>MSHA</span>
+          <span class="credentials__bar-divider">|</span>
+          <span>AWS D1.1</span>
+          <span class="credentials__bar-divider">|</span>
+          <span>AI Engineering</span>
+          <span class="credentials__bar-divider">|</span>
+          <span>NCCER</span>
         </div>
       </div>
     </section>
 
-    <!-- ==================== CONTACT SECTION ==================== -->
+    <!-- ==================== CONTACT ==================== -->
     <section class="contact" id="contact" aria-labelledby="contact-heading">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="contact-heading">Get In Touch</h2>
-          <div class="title-underline"></div>
-          <p class="section-subtitle">Let's discuss how I can contribute to your next project</p>
+        <h2 class="contact__heading animate-on-scroll" id="contact-heading">Let's Build Something.</h2>
+
+        <div class="contact__info animate-on-scroll">
+          <a href="mailto:danieltso@mail.com" class="contact__item">
+            <i class="fas fa-envelope"></i>
+            <span>danieltso@mail.com</span>
+          </a>
+          <span class="contact__divider">|</span>
+          <a href="tel:+14802280765" class="contact__item">
+            <i class="fas fa-phone"></i>
+            <span>(480) 228-0765</span>
+          </a>
+          <span class="contact__divider">|</span>
+          <span class="contact__item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Tempe, Arizona</span>
+          </span>
         </div>
 
-        <div class="contact__content">
-          <div class="contact__info">
-            <div class="contact__text">
-              <h3>Ready to Bring Field Expertise & Modern Tech to Your Team</h3>
-              <p>
-                I'm actively seeking project management opportunities where I can leverage my unique
-                combination of 33 years of field experience and modern technical coordination skills.
-                Available for travel nationwide for the right opportunity.
-              </p>
-              <p>
-                <strong>Currently:</strong> QA BIM Coordinator on Google Datacenter (Council Bluffs, IA)<br>
-                <strong>Based in:</strong> Tempe, Arizona<br>
-                <strong>Open to:</strong> Travel, Relocation, Full-Time, Contract
-              </p>
-            </div>
-
-            <div class="contact__cards">
-              <div class="contact__card">
-                <div class="contact__card-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div class="contact__card-details">
-                  <h4>Email</h4>
-                  <a href="mailto:danieltso@mail.com">danieltso@mail.com</a>
-                </div>
-              </div>
-
-              <div class="contact__card">
-                <div class="contact__card-icon">
-                  <i class="fas fa-phone"></i>
-                </div>
-                <div class="contact__card-details">
-                  <h4>Phone</h4>
-                  <a href="tel:+14802280765">(480) 228-0765</a>
-                </div>
-              </div>
-
-              <div class="contact__card">
-                <div class="contact__card-icon">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="contact__card-details">
-                  <h4>Location</h4>
-                  <p>Tempe, Arizona<br>Available Nationwide</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="contact__cta">
-              <a href="assets/documents/Daniel_Tso_Resume.pdf" class="btn btn--primary btn--lg" download>
-                <i class="fas fa-download"></i> Download Full Resume
-              </a>
-            </div>
-
-            <p class="contact__references-note">Professional references available upon request.</p>
-          </div>
+        <div class="contact__cta animate-on-scroll">
+          <a href="assets/documents/Daniel_Tso_Resume.pdf" class="btn btn--outline-orange btn--lg" download>
+            <i class="fas fa-download"></i> Download Resume
+          </a>
         </div>
+
+        <p class="contact__references-note animate-on-scroll">Professional references available upon request.</p>
       </div>
     </section>
 
@@ -958,30 +363,8 @@
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
     <div class="container">
-      <div class="footer__content">
-        <div class="footer__info">
-          <h3 class="footer__name">Daniel Tso</h3>
-          <p class="footer__tagline">Construction Project Manager | 33 Years of Excellence</p>
-        </div>
-
-        <div class="footer__links">
-          <a href="#home" class="footer__link">Home</a>
-          <a href="#about" class="footer__link">About</a>
-          <a href="#projects" class="footer__link">Projects</a>
-          <a href="#experience" class="footer__link">Experience</a>
-          <a href="#credentials" class="footer__link">Credentials</a>
-          <a href="#contact" class="footer__link">Contact</a>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <p class="footer__copyright">
-          &copy; <span id="currentYear">2025</span> Daniel Tso. All rights reserved.
-        </p>
-        <p class="footer__built">
-          Built with precision
-        </p>
-      </div>
+      <p class="footer__name">DANIEL TSO</p>
+      <p class="footer__copyright">&copy; <span id="currentYear">2026</span> Built with precision.</p>
     </div>
   </footer>
 

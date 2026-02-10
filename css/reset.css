@@ -1,5 +1,6 @@
 /* ==========================================
    CSS Reset & Base Styles
+   Dark Mode Theme
    ========================================== */
 
 /* Box sizing reset */
@@ -37,8 +38,8 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.6;
   font-family: var(--font-primary);
-  color: var(--color-steel);
-  background-color: var(--color-white);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -95,12 +96,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: var(--font-bold);
   line-height: 1.2;
-  color: var(--color-charcoal);
+  color: var(--color-text-primary);
 }
 
 /* Accessibility: Improve focus visibility */
 :focus-visible {
-  outline: 2px solid var(--color-blue);
+  outline: 2px solid var(--color-orange);
   outline-offset: 2px;
 }
 
@@ -111,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Improve text selection */
 ::selection {
-  background-color: var(--color-blue);
+  background-color: var(--color-orange);
   color: var(--color-white);
 }
 
@@ -122,7 +123,7 @@ h1, h2, h3, h4, h5, h6 {
   left: var(--space-4);
   z-index: var(--z-tooltip);
   padding: var(--space-3) var(--space-5);
-  background-color: var(--color-navy);
+  background-color: var(--color-bg-card);
   color: var(--color-white);
   font-weight: var(--font-semibold);
   border-radius: 0 0 var(--radius-md) var(--radius-md);
