@@ -20,18 +20,21 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts (non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome (non-render-blocking) -->
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/variables.css?v=2.1">
-  <link rel="stylesheet" href="css/reset.css?v=2.1">
-  <link rel="stylesheet" href="css/styles.css?v=2.1">
+  <link rel="stylesheet" href="css/variables.css?v=2.2">
+  <link rel="stylesheet" href="css/reset.css?v=2.2">
+  <link rel="stylesheet" href="css/styles.css?v=2.2">
 </head>
 <body>
 
@@ -52,7 +55,7 @@
             <span class="nav__toggle-bar"></span>
           </button>
 
-          <ul class="nav__menu" id="navMenu" role="navigation">
+          <ul class="nav__menu" id="navMenu">
             <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
             <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
             <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
@@ -149,7 +152,10 @@
           <!-- Project: Google Datacenter -->
           <div class="projects__card animate-on-scroll" data-delay="0">
             <div class="projects__card-image">
-              <img src="assets/images/projects/project-google-datacenter.png" alt="Google Datacenter project — server racks and structured cabling" loading="lazy">
+              <picture>
+                <source srcset="assets/images/projects/project-google-datacenter.webp" type="image/webp">
+                <img src="assets/images/projects/project-google-datacenter.png" alt="Google Datacenter project — server racks and structured cabling" loading="lazy">
+              </picture>
             </div>
             <div class="projects__card-body">
               <span class="projects__card-category">Mission Critical</span>
@@ -167,7 +173,10 @@
           <!-- Project: Mission Mine -->
           <div class="projects__card animate-on-scroll" data-delay="100">
             <div class="projects__card-image">
-              <img src="assets/images/projects/project-mission-mine.png" alt="Mission Mine Mill — heavy industrial mining expansion" loading="lazy">
+              <picture>
+                <source srcset="assets/images/projects/project-mission-mine.webp" type="image/webp">
+                <img src="assets/images/projects/project-mission-mine.png" alt="Mission Mine Mill — heavy industrial mining expansion" loading="lazy">
+              </picture>
             </div>
             <div class="projects__card-body">
               <span class="projects__card-category">Mining</span>
@@ -185,7 +194,10 @@
           <!-- Project: Nestle Purina -->
           <div class="projects__card animate-on-scroll" data-delay="200">
             <div class="projects__card-image">
-              <img src="assets/images/projects/project-nestle-purina.png" alt="Nestle Purina manufacturing — process piping installation" loading="lazy">
+              <picture>
+                <source srcset="assets/images/projects/project-nestle-purina.webp" type="image/webp">
+                <img src="assets/images/projects/project-nestle-purina.png" alt="Nestle Purina manufacturing — process piping installation" loading="lazy">
+              </picture>
             </div>
             <div class="projects__card-body">
               <span class="projects__card-category">Manufacturing</span>
@@ -203,7 +215,10 @@
           <!-- Project: LUCID Motors -->
           <div class="projects__card animate-on-scroll" data-delay="300">
             <div class="projects__card-image">
-              <img src="assets/images/projects/project-lucid-motors.png" alt="LUCID Motors production facility — structural steel" loading="lazy">
+              <picture>
+                <source srcset="assets/images/projects/project-lucid-motors.webp" type="image/webp">
+                <img src="assets/images/projects/project-lucid-motors.png" alt="LUCID Motors production facility — structural steel" loading="lazy">
+              </picture>
             </div>
             <div class="projects__card-body">
               <span class="projects__card-category">Automotive</span>
@@ -374,6 +389,6 @@
   </button>
 
   <!-- JavaScript -->
-  <script src="js/main.js?v=2.1"></script>
+  <script src="js/main.js?v=2.2" defer></script>
 </body>
 </html>
