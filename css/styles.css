@@ -70,9 +70,9 @@ section {
 }
 
 .btn--primary {
-  background-color: #c06015;
+  background-color: var(--color-orange);
   color: var(--color-white);
-  border-color: #c06015;
+  border-color: var(--color-orange);
   font-weight: var(--font-bold);
 }
 
@@ -96,7 +96,7 @@ section {
 
 .btn--lg {
   padding: var(--space-4) var(--space-8);
-  font-size: var(--text-lg);
+  font-size: max(var(--text-lg), 1.167rem);
 }
 
 .btn--sm {
