@@ -82,6 +82,14 @@
       text-align: justify;
     }
 
+    .summary p {
+      margin-bottom: 10px;
+    }
+
+    .summary p:last-child {
+      margin-bottom: 0;
+    }
+
     /* Experience */
     .job {
       margin-bottom: 18px;
@@ -117,6 +125,8 @@
     .job-description {
       margin-bottom: 5px;
       font-weight: 500;
+      font-style: italic;
+      color: #e67e22;
     }
 
     ul {
@@ -126,6 +136,31 @@
 
     li {
       margin-bottom: 4px;
+      text-align: justify;
+    }
+
+    /* Early Career */
+    .early-career {
+      margin-bottom: 15px;
+    }
+
+    .early-career .role {
+      margin-bottom: 8px;
+    }
+
+    .early-career .role-title {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .early-career .role-company {
+      color: #1a5490;
+      font-weight: 600;
+    }
+
+    .early-career .summary-text {
+      margin-top: 8px;
+      font-style: italic;
       text-align: justify;
     }
 
@@ -189,7 +224,7 @@
     }
 
     .cert-item::before {
-      content: '✓';
+      content: '\2713';
       position: absolute;
       left: 0;
       color: #e67e22;
@@ -197,18 +232,8 @@
     }
 
     /* References */
-    .reference {
+    .references {
       margin-bottom: 10px;
-    }
-
-    .reference-name {
-      font-weight: bold;
-      color: #2c3e50;
-    }
-
-    .reference-title {
-      font-size: 10pt;
-      color: #666;
       font-style: italic;
     }
 
@@ -292,10 +317,11 @@
       <h1>DANIEL TSO</h1>
       <div class="title">Construction Project Manager | Superintendent & BIM Coordinator</div>
       <div class="contact-info">
-        <span>📍 Tempe, Arizona 85281</span>
-        <span>✉️ danieltso@mail.com</span>
-        <span>📱 (480) 228-0765</span>
-        <span>🌐 <a href="https://danieltso.github.io/portfolio/" class="portfolio-link">danieltso.github.io/portfolio</a></span>
+        <span>Tempe, Arizona 85281</span>
+        <span>&bull;</span>
+        <span>danieltso@mail.com</span>
+        <span>&bull;</span>
+        <span>(480) 228-0765</span>
       </div>
     </header>
 
@@ -303,7 +329,9 @@
     <section>
       <h2>Professional Summary</h2>
       <div class="summary">
-        Seasoned construction professional with <strong>33 years of industry experience</strong> combining hands-on trades, engineering design, field execution, and project management expertise. Began learning construction trades—welding, rigging, ironworking, heavy equipment operation—working summers with family construction business while pursuing education. Progressed through engineering design career at design firms (CADD Designer to Project Designer), then <strong>11 years with Bechtel Corporation</strong> advancing from Field Engineer to Construction Manager. This unique background—understanding trades, design intent, and field constructability—enables exceptional project coordination and problem-solving. Currently serving as <strong>QA BIM Coordinator</strong> for Dilling Group Inc on mission-critical Google Datacenter project, demonstrating successful integration of design knowledge, field expertise, and modern BIM coordination. <strong>Actively integrating AI technology into construction workflows</strong>—leveraging AI for email automation, proposal writing, RFI generation, and document summarization. Completed advanced training in AI Agent Development, AI Engineering, and Prompt Engineering to stay current with emerging technologies transforming the construction industry. Proven track record at Bechtel managing large-scale projects, directing superintendent teams, and coordinating between engineering, field execution, and project controls. Known for stepping up in critical moments, adapting quickly to evolving demands, and delivering results safely, on time, and within scope. Formally educated in construction management (BS, Arizona State University) with extensive experience in CAD/BIM software, digital project management tools (ProCore, SAP, Microsoft Project), and survey operations. Skilled at bridging design, field execution, and project planning.
+        <p><strong>Construction Project Manager with 33 years of experience spanning trades, engineering design, field execution, and project leadership.</strong> I have managed $60M+ projects, directed crews of 110+ across multiple trades, and consistently delivered results in high-pressure, mission-critical environments. Over 11 years at Bechtel Corporation, I earned every promotion&mdash;from Field Engineer to Construction Manager&mdash;by outworking problems, owning outcomes, and never walking away from a challenge.</p>
+        <p>I have stepped into failing projects and turned them around. I have taken on crisis assignments during labor strikes and kept operations running. When a superintendent was dismissed mid-project on a $60M expansion, I was the one they called&mdash;and I delivered. That is who I am: the person who shows up, takes ownership, and gets it done.</p>
+        <p>Currently at Dilling Group Inc on a mission-critical Google Datacenter project&mdash;leading BIM coordination and managing BIM subcontractor workflows. I am actively leveraging AI to modernize construction workflows including RFI generation, document automation, and project coordination. I bring the field knowledge, the leadership experience, the technical skills, and the relentless work ethic to excel as a Construction Project Manager&mdash;and I am ready to prove it.</p>
       </div>
     </section>
 
@@ -311,235 +339,183 @@
     <section>
       <h2>Professional Experience</h2>
 
-      <!-- Current Role -->
       <div class="job">
         <div class="job-header">
           <div class="job-title">QA BIM Coordinator</div>
-          <div class="job-date">August 2025 – Present</div>
+          <div class="job-date">August 2025 &ndash; Present</div>
         </div>
         <div class="company-location">Dilling Group Inc | Council Bluffs, IA</div>
-        <div class="job-description"><strong>Project:</strong> Google Datacenter – Mission Critical Construction</div>
+        <div class="job-description">Project: Google Datacenter &ndash; Mission Critical Construction</div>
         <ul>
-          <li>Coordinate BIM quality assurance for mission-critical datacenter infrastructure across all trades</li>
-          <li>Ensure clash detection and model accuracy supporting seamless field execution</li>
-          <li>Collaborate with engineering teams on digital coordination workflows and as-built documentation</li>
-          <li>Demonstrate successful transition from field leadership to technical coordination role</li>
+          <li>Lead cross-trade BIM coordination meetings ensuring alignment between mechanical, electrical, and piping disciplines on mission-critical datacenter infrastructure</li>
+          <li>Manage subcontractor BIM coordination workflows and quality adherence for field-ready deliverables</li>
+          <li>Interface directly with Google client representatives on quality coordination and digital coordination standards</li>
+          <li>Process RFIs and change orders as needed, ensuring timely resolution of field issues and design discrepancies</li>
+          <li>Track BIM scopes across trades, monitoring progress and accountability for coordination deliverables</li>
+          <li>Created digital forms and tracking tools to support BIM issue workflow documentation and resolution</li>
+          <li>Collaborate with engineering teams on digital coordination workflows, as-built documentation, and constructability reviews</li>
         </ul>
       </div>
 
       <div class="job">
         <div class="job-header">
           <div class="job-title">Mechanical Superintendent</div>
-          <div class="job-date">August 2024 – April 2025</div>
+          <div class="job-date">August 2024 &ndash; April 2025</div>
         </div>
-        <div class="company-location">Robinson Construction | Nestle Purina Dog Food Plant, Batavia, OH</div>
+        <div class="company-location">Robinson Construction | Batavia, OH</div>
+        <div class="job-description">Project: Nestl&eacute; Purina Dog Food Plant</div>
         <ul>
-          <li>Led multidisciplinary crew of 18 installing process piping, hoppers, bins, and airlocks</li>
-          <li>Maintained strict adherence to safety protocols, achieving flawless safety record</li>
-          <li>Used ProCore for tracking progress and reporting to management</li>
-          <li><strong>Completed deliverables three weeks ahead of schedule</strong> through efficient planning and execution</li>
+          <li>Led multidisciplinary crew of 18 installing process piping, hoppers, bins, and airlocks for food manufacturing facility</li>
+          <li>Completed deliverables three weeks ahead of schedule through efficient planning, resource allocation, and proactive issue resolution</li>
+          <li>Maintained strict adherence to safety protocols, achieving flawless safety record throughout project duration</li>
+          <li>Used ProCore for progress tracking, daily reporting, and transparent communication with project management</li>
         </ul>
       </div>
 
       <div class="job">
         <div class="job-header">
-          <div class="job-title">Pipe Superintendent</div>
-          <div class="job-date">January 2024 – August 2024</div>
+          <div class="job-title">Construction Manager</div>
+          <div class="job-date">January 2024 &ndash; August 2024</div>
         </div>
-        <div class="company-location">Western Industrial | Freeport-McMoran Copper & Gold Acid Plant, Miami, AZ</div>
+        <div class="company-location">Western Industrial | Miami, AZ</div>
+        <div class="job-description">Project: Freeport-McMoran Copper &amp; Gold Acid Plant Expansion</div>
         <ul>
-          <li>Directed 21-person crew on major acid plant expansion project</li>
-          <li>Managed scheduling via Microsoft Project, material procurement, and daily coordination</li>
-          <li>Resolved design conflicts through well-documented RFIs to maintain project flow</li>
-          <li>Ensured compliance with stringent environmental and safety regulations</li>
+          <li>Directed 21-person field crew and coordinated 3 subcontractors on major acid plant expansion for one of the world's largest copper and gold mining operations</li>
+          <li>Managed scheduling via Microsoft Project, material procurement, and daily multi-trade coordination</li>
+          <li>Resolved design conflicts through well-documented RFIs, maintaining project flow and preventing costly rework</li>
+          <li>Ensured compliance with stringent environmental and safety regulations in hazardous industrial environment</li>
         </ul>
       </div>
 
       <div class="job">
         <div class="job-header">
           <div class="job-title">Temporary Maintenance Superintendent</div>
-          <div class="job-date">May 2023 – January 2024</div>
+          <div class="job-date">May 2023 &ndash; January 2024</div>
         </div>
         <div class="company-location">ASARCO LLC | Kearney, AZ</div>
+        <div class="job-description">Crisis Management Assignment</div>
         <ul>
-          <li><strong>Crisis Management:</strong> Oversaw contractor maintenance during union strike across mill, crusher, conveying systems, acid plant, and tailings</li>
-          <li>Used SAP to manage work orders and material procurement needs</li>
-          <li>Directed five contractor teams ensuring continuous mine operation and production continuity</li>
+          <li>Oversaw contractor maintenance operations during union strike, ensuring continuous mine operation across mill, crusher, conveying systems, acid plant, and tailings</li>
+          <li>Directed five contractor teams and managed work orders through SAP, maintaining production continuity during labor disruption</li>
+          <li>Coordinated material procurement and emergency repairs under compressed timelines and heightened operational pressure</li>
         </ul>
       </div>
 
       <div class="job">
         <div class="job-header">
           <div class="job-title">Crafts Superintendent</div>
-          <div class="job-date">November 2022 – May 2023</div>
+          <div class="job-date">November 2022 &ndash; May 2023</div>
         </div>
-        <div class="company-location">QEIS Inc | LUCID Motors Phase 2 Production Facility, Casa Grande, AZ</div>
+        <div class="company-location">QEIS Inc | Casa Grande, AZ</div>
+        <div class="job-description">Project: LUCID Motors Phase 2 Production Facility</div>
         <ul>
-          <li><strong>Promoted from Foreman to General Foreman, then to Crafts Superintendent</strong> during project</li>
-          <li>Managed 42 tradesmen constructing structural supports for three production lines</li>
-          <li>Met exacting QA/QC requirements with zero tolerance for error</li>
-          <li>Coordinated with manufacturing engineering on precision installations</li>
+          <li>Promoted from Foreman to General Foreman to Crafts Superintendent during project&mdash;recognized for leadership and execution</li>
+          <li>Managed 42 tradesmen constructing structural supports for three EV production lines with zero-tolerance QA/QC requirements</li>
+          <li>Coordinated with LUCID manufacturing engineering on precision installations meeting exacting specifications</li>
         </ul>
       </div>
 
       <div class="job">
         <div class="job-header">
           <div class="job-title">Superintendent</div>
-          <div class="job-date">August 2021 – November 2022</div>
+          <div class="job-date">August 2021 &ndash; November 2022</div>
         </div>
-        <div class="company-location">GMS Mining | Mission Mine Mill Northside Expansion, Sahuarita, AZ</div>
+        <div class="company-location">GMS Mining | Sahuarita, AZ</div>
+        <div class="job-description">Project: Mission Mine Mill Northside Expansion ($60M)</div>
         <ul>
-          <li><strong>Stepped in after superintendent dismissal to lead $60M expansion project</strong></li>
-          <li>Managed 110 personnel during demolition and installation phases</li>
-          <li>Stabilized project timeline and budget after significant delays</li>
-          <li>Completed project before new superintendent was hired</li>
+          <li>Stepped in after superintendent dismissal to lead $60M mine expansion&mdash;stabilized timeline and budget after significant delays</li>
+          <li>Managed 110 personnel through demolition and installation phases, coordinating multiple trades and subcontractors simultaneously</li>
+          <li>Delivered project milestones and maintained operational continuity until new superintendent was onboarded</li>
         </ul>
       </div>
 
       <div class="job">
         <div class="job-header">
           <div class="job-title">Superintendent</div>
-          <div class="job-date">February 2021 – August 2021</div>
+          <div class="job-date">February 2021 &ndash; August 2021</div>
         </div>
-        <div class="company-location">Precision Industrial Contractors | ESNOVA Prototype Racking System, Hamilton, OH</div>
+        <div class="company-location">Precision Industrial Contractors | Hamilton, OH</div>
+        <div class="job-description">Project: ESNOVA Confidential Robotics-Enabled Racking System</div>
         <ul>
-          <li>Managed 45-member crew on confidential robotics-enabled racking system</li>
-          <li><strong>Worked in fully paperless environment</strong> using advanced software coordination tools</li>
-          <li>Coordinated closely with Spanish engineers maintaining strict confidentiality protocols</li>
-          <li>Delivered innovative warehouse automation infrastructure on time</li>
+          <li>Managed 45-member crew on innovative warehouse automation infrastructure under strict confidentiality protocols</li>
+          <li>Operated in fully paperless environment using advanced digital coordination and project management tools</li>
+          <li>Coordinated with Spanish engineering team, bridging language and technical requirements to deliver on time</li>
         </ul>
       </div>
 
       <div class="job">
         <div class="job-header">
           <div class="job-title">Construction Manager | Project Superintendent | Craft Superintendent | Field Engineer</div>
-          <div class="job-date">2009 – 2020</div>
+          <div class="job-date">2009 &ndash; 2020</div>
         </div>
         <div class="company-location">Bechtel Corporation | Various Locations, United States</div>
+        <div class="job-description">11-Year Career Progression at World's Leading Engineering &amp; Construction Company</div>
         <ul>
-          <li><strong>Progressed through four leadership levels over 11 years</strong> at world's leading engineering and construction company</li>
-          <li><strong>Construction Manager:</strong> Directed overall field construction operations, managed superintendent teams, coordinated with engineering and project controls, ensured project delivery on schedule and budget</li>
-          <li><strong>Project Superintendent:</strong> Oversaw multiple crafts and trades, managed field execution for large-scale industrial and infrastructure projects, coordinated with project management and client stakeholders</li>
-          <li><strong>Craft Superintendent:</strong> Led specialized trade crews, ensured quality standards and safety compliance, managed day-to-day field operations and productivity</li>
-          <li><strong>Field Engineer:</strong> Supported construction activities with technical expertise, managed RFIs and submittals, coordinated between design and field teams</li>
-          <li>Worked on diverse projects including refineries, power plants, LNG facilities, mining operations, and heavy industrial construction</li>
-          <li>Developed comprehensive project management skills combining field execution with office coordination</li>
+          <li>Progressed through four leadership levels&mdash;from Field Engineer to Construction Manager&mdash;demonstrating consistent advancement through performance and results</li>
+          <li>As Construction Manager: Directed overall field construction operations, managed superintendent teams, coordinated between engineering, field execution, and project controls to ensure on-schedule, on-budget delivery</li>
+          <li>As Project Superintendent: Oversaw multiple crafts and trades on large-scale industrial and infrastructure projects, coordinating with project management and client stakeholders</li>
+          <li>Managed diverse project portfolio including refineries, power plants, LNG facilities, mining operations, and heavy industrial construction</li>
+          <li>Developed comprehensive project management skills integrating field execution, office coordination, project controls, and client relations</li>
         </ul>
       </div>
+    </section>
 
-      <div class="job">
-        <div class="job-header">
-          <div class="job-title">Ironworker</div>
-          <div class="job-date">2007 – 2009</div>
-        </div>
-        <div class="company-location">Local 433 Ironworker Union Sub Hall | Las Vegas, NV</div>
-        <ul>
-          <li>Returned to field work during economic downturn, maintaining trade skills and field expertise</li>
-          <li>Structural steel erection, reinforcing steel placement, and rigging operations</li>
-          <li>This field experience proved invaluable when transitioning to Bechtel Field Engineer role</li>
-        </ul>
+    <!-- Early Career & Foundation -->
+    <section>
+      <h2>Early Career &amp; Foundation</h2>
+      <div class="early-career">
+        <div class="role"><span class="role-title">Ironworker</span> &ndash; Local 433, Las Vegas, NV (2007&ndash;2009) | <span class="role-title">Project Designer / CADD Designer</span> &ndash; Dibbling Engineering, Phoenix, AZ (2004&ndash;2007)</div>
+        <div class="role"><span class="role-title">CADD Designer &amp; Survey Technician</span> &ndash; Stanley Engineers, Phoenix, AZ (1999&ndash;2004) | <span class="role-title">Construction Trades</span> &ndash; Family Business (1992&ndash;1998)</div>
+        <p class="summary-text">Career foundation built through engineering design (infrastructure, water/sewer/drainage systems), CAD/survey work, structural steel erection, and hands-on construction trades including welding, rigging, ironworking, and heavy equipment operation.</p>
       </div>
-
-      <div class="job">
-        <div class="job-header">
-          <div class="job-title">Project Designer | CADD Designer</div>
-          <div class="job-date">2004 – 2007</div>
-        </div>
-        <div class="company-location">Dibbling Engineering | Phoenix, AZ</div>
-        <ul>
-          <li><strong>Promoted from CADD Designer to Project Designer</strong> after two years in Infrastructure Department</li>
-          <li>Designed infrastructure projects including water, sewer, drainage, and transportation systems</li>
-          <li>Created construction documents, technical drawings, and design specifications</li>
-          <li>Coordinated with civil engineers, surveyors, and project managers on project delivery</li>
-          <li>Developed strong understanding of design intent and constructability</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-header">
-          <div class="job-title">CADD Designer & Survey Technician</div>
-          <div class="job-date">1999 – 2004</div>
-        </div>
-        <div class="company-location">Stanley Engineers | Phoenix, AZ</div>
-        <ul>
-          <li>First professional role after earning BS in Construction Management from Arizona State University</li>
-          <li>Created CAD drawings for engineering projects and provided survey support services</li>
-          <li>Gained foundational experience in engineering design and field surveying over 5 years</li>
-          <li>Applied hands-on construction knowledge from family business to engineering design work</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-header">
-          <div class="job-title">Construction Trades - Family Business</div>
-          <div class="job-date">1992 – 1998</div>
-        </div>
-        <div class="company-location">Family Construction Business | Summers & School Breaks</div>
-        <ul>
-          <li>Learned construction trades working with father, uncle, and brothers during high school and college</li>
-          <li>Gained hands-on experience in welding, rigging, ironworking, and heavy equipment operation</li>
-          <li>Developed strong work ethic and comprehensive understanding of field operations</li>
-          <li>This foundation informed pursuit of formal education and later career progression</li>
-        </ul>
-      </div>
-
     </section>
 
     <!-- Skills & Expertise -->
     <section>
-      <h2>Skills & Expertise</h2>
+      <h2>Skills &amp; Expertise</h2>
       <div class="skills-grid">
         <div class="skill-category">
-          <h3>Project Management</h3>
+          <h3>Project Management &amp; Leadership</h3>
           <ul>
-            <li>Microsoft Project – Scheduling & Planning</li>
             <li>Budget Management ($60M+ Projects)</li>
-            <li>Resource Allocation & Crew Management</li>
-            <li>RFI & Change Order Management</li>
-            <li>Stakeholder Communication</li>
+            <li>Microsoft Project &ndash; Scheduling &amp; Planning</li>
+            <li>Resource Allocation &amp; Crew Management (110+)</li>
+            <li>RFI &amp; Change Order Management</li>
+            <li>Stakeholder &amp; Client Communication</li>
+            <li>Crisis Management &amp; Project Turnarounds</li>
           </ul>
         </div>
 
         <div class="skill-category">
           <h3>Technical Coordination</h3>
           <ul>
-            <li>BIM Coordination & Quality Assurance</li>
+            <li>BIM Coordination &amp; Quality Assurance</li>
             <li>ProCore, SAP, MS Office Suite</li>
             <li>AutoCAD, MicroStation, Bluebeam</li>
-            <li>Digital Project Management</li>
-            <li>Paperless Environment Operations</li>
+            <li>Digital Project Management &amp; Paperless Ops</li>
+            <li>Clash Detection &amp; Model Accuracy</li>
+            <li>Constructability Reviews</li>
           </ul>
         </div>
 
         <div class="skill-category">
-          <h3>Field Leadership</h3>
+          <h3>Field Operations</h3>
           <ul>
-            <li>Crew Management (up to 110 Personnel)</li>
-            <li>Union & Non-Union Environments</li>
             <li>Multi-Trade Coordination</li>
+            <li>Union &amp; Non-Union Environments</li>
+            <li>Safety Compliance &amp; Protocols</li>
             <li>Problem-Solving Under Pressure</li>
-            <li>Crisis Management & Turnarounds</li>
+            <li>Subcontractor Management</li>
           </ul>
         </div>
 
         <div class="skill-category">
-          <h3>Industry Expertise</h3>
+          <h3>Industry &amp; Technology</h3>
           <ul>
             <li>Mission Critical / Data Centers</li>
-            <li>Mining & Heavy Industrial</li>
-            <li>Refineries & Petrochemical</li>
-            <li>Manufacturing Facilities</li>
-            <li>Power Plants & Energy</li>
-          </ul>
-        </div>
-
-        <div class="skill-category">
-          <h3>AI Integration & Emerging Technology</h3>
-          <ul>
-            <li>AI-Powered Email & Proposal Writing</li>
-            <li>Automated RFI Generation & Management</li>
-            <li>AI Document Summarization & Analysis</li>
-            <li>Agent AI Development & Deployment</li>
+            <li>Mining, Refineries &amp; Petrochemical</li>
+            <li>Manufacturing &amp; Power Plants</li>
+            <li>AI-Powered Workflows &amp; Automation</li>
             <li>Prompt Engineering for Construction</li>
           </ul>
         </div>
@@ -551,34 +527,31 @@
       <h2>Education</h2>
       <div class="education-item">
         <div class="degree">Bachelor of Science in Construction Management</div>
-        <div class="school">Arizona State University, Tempe, AZ</div>
-        <div class="edu-details">1998</div>
+        <div class="school">Arizona State University, Tempe, AZ (1998)</div>
       </div>
 
       <div class="education-item">
         <div class="degree">Associate of Applied Science in Construction Management</div>
-        <div class="school">Phoenix College, Phoenix, AZ</div>
-        <div class="edu-details">1995</div>
+        <div class="school">Phoenix College, Phoenix, AZ (1995)</div>
       </div>
 
       <div class="education-item">
         <div class="degree">Technical Associate's Degree in Drafting/CAD Technology</div>
-        <div class="school">High-Tech Institute, Phoenix, AZ</div>
-        <div class="edu-details">1993</div>
+        <div class="school">High-Tech Institute, Phoenix, AZ (1993)</div>
       </div>
     </section>
 
     <!-- Certifications & Training -->
     <section>
-      <h2>Certifications & Training</h2>
+      <h2>Certifications &amp; Training</h2>
       <div class="cert-grid">
-        <div class="cert-item">AI Engineering & Integration Training</div>
+        <div class="cert-item">AI Engineering &amp; Integration Training</div>
         <div class="cert-item">AI Agent Development Certification</div>
         <div class="cert-item">Prompt Engineering for Construction</div>
-        <div class="cert-item">AWS D1.1 SMAW & FCAW Certified (3G & 4G)</div>
-        <div class="cert-item">MSHA Certified - Experienced Miner</div>
+        <div class="cert-item">AWS D1.1 SMAW &amp; FCAW Certified (3G &amp; 4G)</div>
+        <div class="cert-item">MSHA Certified &ndash; Experienced Miner</div>
         <div class="cert-item">TWIC Card</div>
-        <div class="cert-item">OSHA 10 Trained</div>
+        <div class="cert-item">OSHA 10 &amp; 30 Trained</div>
         <div class="cert-item">NCCER Foreman Training</div>
         <div class="cert-item">NCCER Ironworker Training</div>
         <div class="cert-item">NCCER Superintendent Training</div>
@@ -591,23 +564,11 @@
     <!-- Professional References -->
     <section>
       <h2>Professional References</h2>
-      <div class="reference">
-        <span class="reference-name">Brenden Hendrix</span>, Project Manager
-        <div class="reference-title">Phone: (225) 428-6061</div>
-      </div>
-      <div class="reference">
-        <span class="reference-name">Daniel Betancourt</span>, Senior Superintendent
-        <div class="reference-title">Phone: (404) 274-4923</div>
-      </div>
-      <div class="reference">
-        <span class="reference-name">Tim Williamson</span>, Owner/Project Manager, Rincon Steel
-        <div class="reference-title">Phone: (602) 469-0764</div>
-      </div>
+      <p class="references">Available upon request</p>
     </section>
 
     <!-- Footer -->
     <footer>
-      <p><strong>Portfolio:</strong> <a href="https://danieltso.github.io/portfolio/" class="portfolio-link">danieltso.github.io/portfolio</a></p>
       <p>Available for travel nationwide | Open to full-time, contract, and project-based opportunities</p>
     </footer>
   </div>
